@@ -108,3 +108,7 @@ Route::get('/clear-cache', function() {
     Artisan::call('route:clear');
     return "Cache is cleared";
 })->name('clear.cache');
+
+Route::get('/artisan-migrate', function (){
+    Artisan::call('migrate');
+});
