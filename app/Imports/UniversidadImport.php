@@ -31,7 +31,7 @@ class UniversidadImport implements ToCollection, WithHeadingRow
                     $checkCarrera = Carrera::where([
                         'id_universidad' => $universidad->id,
                         'nombre_carrera' => $row['carrera']
-                    ]);
+                    ])->get()->first();
                     if($checkCarrera == null){
                         Carrera::create([
                             'id_universidad' => $universidad->id,
