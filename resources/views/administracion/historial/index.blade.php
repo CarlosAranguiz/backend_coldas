@@ -70,7 +70,7 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Importar Alumnos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('alumnos.importar') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('historial.limpiar') }}" method="POST">
             @csrf
             <div class="modal-body">
                 <div class="row">

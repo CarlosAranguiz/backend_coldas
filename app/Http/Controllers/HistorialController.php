@@ -20,7 +20,8 @@ class HistorialController extends Controller
     {
         $alumno = User::where(['rut' => $request->rutAlumno])->get()->first();
         Device::where(['usuarioId' => $alumno->id])->delete();
-        Session::flash('msg','Dispositivo liberado con exito');
+        Session::flash('message','Dispositivo liberado con exito');
+        Session::flash('alert','alert alert-success');
         return redirect()->back();
     }
 }
