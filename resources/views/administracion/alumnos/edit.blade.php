@@ -145,6 +145,8 @@
                                         <th>Fecha Termino</th>
                                         <th>Hora Inicio</th>
                                         <th>Hora Termino</th>
+										<th>Hora Ingreso</th>
+										<th>Hora Salida</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -157,6 +159,8 @@
                                             <td>{{ $practica->fecha_termino }}</td>
                                             <td>{{ $practica->hora_inicio }}</td>
                                             <td>{{ $practica->hora_termino }}</td>
+											<td>{{ $practica->hora_registro_inicio ?? 'No Registrado' }}</td>
+                                            <td>{{ $practica->hora_registro_termino ?? 'No Registrado' }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

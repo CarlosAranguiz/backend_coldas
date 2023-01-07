@@ -127,7 +127,7 @@ class User extends Authenticatable
     }
 
     public function practicas(){
-        return $this->hasMany(Practica::class,'usuarioId','id');
+        return $this->hasMany(Practica::class,'usuarioId','id')->orderBy('fecha_inicio','desc');
     }
 
     // public function getEstudiosAttribute()

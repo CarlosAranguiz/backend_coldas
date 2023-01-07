@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('apellido_paterno')->nullable();
             $table->string('apellido_materno')->nullable();
             $table->string('nombre_social')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->date('fecha_nacimiento')->nullable();
             $table->string('telefono')->nullable();

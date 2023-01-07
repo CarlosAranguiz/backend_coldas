@@ -6,7 +6,7 @@
 			<div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
 		</div>
 		<div class="logo-icon-wrapper"><a href="<?php echo e(route('dashboard')); ?>"><img class="img-fluid" src="<?php echo e(asset('assets/images/logo/identidad_videos.png')); ?>" height="28px" width="40px" alt=""></a></div>
-		<nav class="sidebar-main">
+		<nav class="sidebar-main mt-5">
 			<div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
 			<div id="sidebar-menu">
 				<ul class="sidebar-links" id="simple-bar">
@@ -30,9 +30,11 @@
 							<li><a class="lan-4 <?php echo e(Route::currentRouteName()=='codigos.list' ? 'active' : ''); ?>" href="<?php echo e(route('codigos.list')); ?>">CodigosQR</a></li>
 						</ul>
 					</li>
-					
-                  	
-					
+					<li class="sidebar-list">
+						<a class="sidebar-link sidebar-title link-nav <?php echo e(Route::currentRouteName()=='historial.list' ? 'active' : ''); ?>" href="<?php echo e(route('historial.list')); ?>">
+							<i data-feather="alert-octagon"></i><span>Historial</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 			<div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

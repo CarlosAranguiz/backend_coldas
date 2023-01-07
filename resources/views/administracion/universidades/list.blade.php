@@ -30,6 +30,7 @@
                     <div class="row">
                         <div class="col-12">
                             <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#crearUniversidad">Crear Universidad</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#modalImportar">Importar Universidades</a>
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
@@ -102,6 +103,31 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Eliminar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalImportar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabelDefault">Importar Alumnos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('universidad.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-body">
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label class="form-label">Excel</label>
+                        <input type="file" class="form-control" name="excel" id="excel">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Importar</button>
             </div>
             </form>
         </div>

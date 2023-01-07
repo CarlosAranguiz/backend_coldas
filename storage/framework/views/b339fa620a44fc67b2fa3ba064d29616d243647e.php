@@ -145,6 +145,8 @@
                                         <th>Fecha Termino</th>
                                         <th>Hora Inicio</th>
                                         <th>Hora Termino</th>
+										<th>Hora Ingreso</th>
+										<th>Hora Salida</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -157,6 +159,8 @@
                                             <td><?php echo e($practica->fecha_termino); ?></td>
                                             <td><?php echo e($practica->hora_inicio); ?></td>
                                             <td><?php echo e($practica->hora_termino); ?></td>
+											<td><?php echo e($practica->hora_registro_inicio ?? 'No Registrado'); ?></td>
+                                            <td><?php echo e($practica->hora_registro_termino ?? 'No Registrado'); ?></td>
                                         </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>

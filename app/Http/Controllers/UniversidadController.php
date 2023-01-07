@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UniversidadImport;
 use App\Models\Universidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UniversidadController extends Controller
 {
@@ -96,5 +98,15 @@ class UniversidadController extends Controller
     public function delete(Request $request)
     {
         //
+    }
+
+    public function importUniversidades(Request $request)
+    {
+        if($request->hasFile('excel')){
+            Excel::import(new UniversidadImport,$request->file('excel'));
+            Session::flash('message','Documento importado con exito!');
+            Session::flash('alert','alert alert-success');
+            return back();
+        }
     }
 }
