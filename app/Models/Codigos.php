@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class QRModel extends Model
+class Codigos extends Model
 {
     use HasFactory;
     protected $table = 'qrs';

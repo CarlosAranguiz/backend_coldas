@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QRModel;
+use App\Models\Codigos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QRController extends Controller
 {
     public function index()
     {
-        $codigos = QRModel::all();
+        $codigos = Codigos::all();
         return view('administracion.codigos.list',['codigos' => $codigos]);
     }
 
@@ -26,7 +25,7 @@ class QRController extends Controller
             'texto.required' => 'Debe ingresar un codigo para generar el QR'
         ]);
         $texto_encriptado = Hash::make($request->texto);
-        QRModel::create([
+        Codigos::create([
             'texto_qr' => $request->texto,
             'texto_encriptado' => $texto_encriptado,
         ]);
@@ -36,7 +35,7 @@ class QRController extends Controller
     }
 
     public function verQR($id){
-        $codigo = QRModel::find($id);
+        $codigo = Codigos::find($id);
         return QrCode::size(256)->generate($codigo->texto_qr.'+'.$codigo->texto_encriptado); 
     }
 }
