@@ -141,6 +141,42 @@ class UserController extends Controller
         }
     }
 
+    
+    public function RegistroAlumno(Request $request)
+    {
+        $request->validate([
+            'rut' => ['required','string','max:12'],
+            'nombre' => ['required','string'],
+            'apellido_paterno' => ['required','string'],
+            'apellido_materno' => ['required','string'],
+            'email' => ['required','string','unique:users'],
+            'password' => ['confirmed','required']
+        ],[
+            'rut.required' => 'Debe ingresar el rut',
+            'rut.max' => 'Debe tener 12 caracteres',
+            'nombre.required' => 'Debe ingresar el nombre',
+            'apellido_paterno.required' => 'Debe ingresar el apellido paterno',
+            'apellido_materno.required' => 'Debe ingresar el apellido materno',
+            'email.required' => 'Debe ingresar un correo',
+            'password.confirmed' => 'Las contraseñas no coinciden'
+        ]);
+        $alumno = User::create([
+            'rut' => $request->rut,
+            'nombre' => $request->nombre,
+            'apellido_paterno' => $request->apellido_paterno,
+            'apellido_materno' => $request->apellido_materno,
+            'nombre_social' => $request->nombre_social ?? null,
+            'email' => $request->email,
+            'id_carrera' => null,
+            'password'=> Hash::make($request->password),
+        ]);
+        $response['ok'] = true;
+        $response['alumno'] = $alumno;
+        return $response;
+    } 
+
+    
+
     public function delete(Request $request)
     {
         User::find($request->idEliminar)->delete();
