@@ -150,7 +150,7 @@ class UserController extends Controller
             'apellido_paterno' => ['required','string'],
             'apellido_materno' => ['required','string'],
             'email' => ['required','string','unique:users'],
-            'password' => ['confirmed','required']
+            'password' => ['required','confirmed'],
         ],[
             'rut.required' => 'Debe ingresar el rut',
             'rut.max' => 'Debe tener 12 caracteres',
