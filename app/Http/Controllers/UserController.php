@@ -147,26 +147,20 @@ class UserController extends Controller
         $request->validate([
             'rut' => ['required','string','max:12'],
             'nombre' => ['required','string'],
-            'apellido_paterno' => ['required','string'],
-            'apellido_materno' => ['required','string'],
-            'email' => ['required','string','unique:users'],
             'password' => ['required','confirmed'],
         ],[
             'rut.required' => 'Debe ingresar el rut',
             'rut.max' => 'Debe tener 12 caracteres',
             'nombre.required' => 'Debe ingresar el nombre',
-            'apellido_paterno.required' => 'Debe ingresar el apellido paterno',
-            'apellido_materno.required' => 'Debe ingresar el apellido materno',
-            'email.required' => 'Debe ingresar un correo',
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
         $alumno = User::create([
             'rut' => $request->rut,
             'nombre' => $request->nombre,
-            'apellido_paterno' => $request->apellido_paterno,
-            'apellido_materno' => $request->apellido_materno,
-            'nombre_social' => $request->nombre_social ?? null,
-            'email' => $request->email,
+            'apellido_paterno' => null,
+            'apellido_materno' => null,
+            'nombre_social' => null,
+            'email' => null,
             'id_carrera' => 10,
             'password'=> Hash::make($request->password),
         ]);
