@@ -172,7 +172,7 @@ class UserController extends Controller
         ]);
         $response['ok'] = true;
         $response['alumno'] = $alumno;
-        return $response;
+        return response($response);
     } 
 
     
