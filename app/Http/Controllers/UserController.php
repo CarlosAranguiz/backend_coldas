@@ -167,7 +167,7 @@ class UserController extends Controller
             'apellido_materno' => $request->apellido_materno,
             'nombre_social' => $request->nombre_social ?? null,
             'email' => $request->email,
-            'id_carrera' => null,
+            'id_carrera' => 10,
             'password'=> Hash::make($request->password),
         ]);
         $usuario = new UserResource($alumno);
