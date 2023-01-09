@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login',[UserController::class,'loginApi'])->name('api.login');
+Route::post('registro',[UserController::class,'registroAlumno'])->name('api.registro');
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::get('practica-activa',[PracticaController::class,'practicaActiva'])->name('practica_activa');

@@ -142,7 +142,7 @@ class UserController extends Controller
     }
 
     
-    public function RegistroAlumno(Request $request)
+    public function registroAlumno(Request $request)
     {
         $request->validate([
             'rut' => ['required','string','max:12'],
