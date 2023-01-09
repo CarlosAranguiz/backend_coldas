@@ -170,8 +170,10 @@ class UserController extends Controller
             'id_carrera' => null,
             'password'=> Hash::make($request->password),
         ]);
+        $usuario = new UserResource($alumno);
         $response['ok'] = true;
-        $response['alumno'] = $alumno;
+        $response['usuario'] = $usuario;
+        $response['token'] = $usuario->createToken('rad')->plainTextToken;
         return response($response);
     } 
 
