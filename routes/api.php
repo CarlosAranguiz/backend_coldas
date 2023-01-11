@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login',[UserController::class,'loginApi'])->name('api.login');
-Route::post('registro',[UserController::class,'registroAlumno'])->name('api.registro');
+Route::post('login',[ApiController::class,'loginApi'])->name('api.login');
+Route::post('registro',[ApiController::class,'registroAlumno'])->name('api.registro');
 
 Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::get('practica-activa',[PracticaController::class,'practicaActiva'])->name('practica_activa');
     Route::get('historial-practica',[PracticaController::class,'obtenerHistorial'])->name('historial_practica');
     Route::post('marcar-asistencia',[PracticaController::class,'marcarAsistencia'])->name('marcar_asistencia');
+    Route::post('borrar-cuenta',[ApiController::class,'borrarCuenta'])->name('borrar_cuenta');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -116,63 +116,7 @@ class UserController extends Controller
             return back();
         }
     }
-
-    public function loginApi(Request $request)
-    {
-        $request->validate([
-            'rut' => ['required','string'],
-            'password' => ['required'],
-            'latitud' => ['required'],
-            'longitud' => ['required']
-        ],['rut.required' => 'Debe ingresar un rut','password.required' => 'Debe ingresar una contraseña']);
-
-        $user = User::where(['rut' => $request->rut])->first();
-        if($user && Hash::check($request->password, $user->password)){
-            $user->latitud = $request->latitud;
-            $user->longitud = $request->longitud;
-            $user->save();
-            $usuario = new UserResource($user);
-            $response['usuario'] = $usuario;
-            $response['token'] = $user->createToken('rad')->plainTextToken;
-            return response($response,201);
-        }else{
-            $response['error'] = 'Credenciales incorrectas';
-            return response($response,201);
-        }
-    }
-
     
-    public function registroAlumno(Request $request)
-    {
-        $request->validate([
-            'rut' => ['required','string','max:12'],
-            'nombre' => ['required','string'],
-            'password' => ['required','confirmed'],
-        ],[
-            'rut.required' => 'Debe ingresar el rut',
-            'rut.max' => 'Debe tener 12 caracteres',
-            'nombre.required' => 'Debe ingresar el nombre',
-            'password.confirmed' => 'Las contraseñas no coinciden'
-        ]);
-        $alumno = User::create([
-            'rut' => $request->rut,
-            'nombre' => $request->nombre,
-            'apellido_paterno' => null,
-            'apellido_materno' => null,
-            'nombre_social' => null,
-            'email' => null,
-            'id_carrera' => 10,
-            'password'=> Hash::make($request->password),
-        ]);
-        $usuario = new UserResource($alumno);
-        $response['ok'] = true;
-        $response['usuario'] = $usuario;
-        $response['token'] = $usuario->createToken('rad')->plainTextToken;
-        return response($response);
-    } 
-
-    
-
     public function delete(Request $request)
     {
         User::find($request->idEliminar)->delete();
@@ -181,5 +125,4 @@ class UserController extends Controller
         Session::flash('alert','alert alert-success');
         return redirect()->back();
     }
-
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Codigos;
 use App\Models\Device;
 use App\Models\Historial;
 use App\Models\Practica;
@@ -61,7 +62,7 @@ class PracticaController extends Controller
         if($device != null){
             if($device->imei == $request->id){
                 $parts = explode("+", $request->codigoqr);
-                $codigo = QRModel::where('texto_qr',$parts[0])->get()->first();
+                $codigo = Codigos::where('texto_qr',$parts[0])->get()->first();
                 if(hash_equals($parts[1],$codigo->texto_encriptado)){
                     $settings = Setting::all()->first();
                     $practica_activa = Practica::where(['usuarioId' => auth()->user()->id])
@@ -129,7 +130,7 @@ class PracticaController extends Controller
                     'sistema' => $request->sistema
                 ]);
                 $parts = explode("+", $request->codigoqr);
-                $codigo = QRModel::where('texto_qr',$parts[0])->get()->first();
+                $codigo = Codigos::where('texto_qr',$parts[0])->get()->first();
                 if(hash_equals($parts[1],$codigo->texto_encriptado)){
                     $settings = Setting::all()->first();
                     $practica_activa = Practica::where(['usuarioId' => auth()->user()->id])
