@@ -14,13 +14,13 @@ class ApiController extends Controller
     public function loginApi(Request $request)
     {
         $request->validate([
-            'email' => ['required','string'],
+            'rut' => ['required','string'],
             'password' => ['required'],
             'latitud' => ['required'],
             'longitud' => ['required']
         ],['email.required' => 'Debe ingresar un rut','password.required' => 'Debe ingresar una contraseña']);
 
-        $user = User::where(['email' => $request->email])->first();
+        $user = User::where(['rut' => $request->rut])->first();
         if($user && Hash::check($request->password, $user->password)){
             $user->latitud = $request->latitud;
             $user->longitud = $request->longitud;
@@ -39,7 +39,7 @@ class ApiController extends Controller
     public function registroAlumno(Request $request)
     {
         $request->validate([
-            'email' => ['required','string','email'],
+            'rut' => ['required','string','max:12'],
             'nombre' => ['required','string'],
             'password' => ['required','confirmed'],
         ],[
@@ -48,8 +48,8 @@ class ApiController extends Controller
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
         $alumno = User::create([
-            'rut' => null,
-            'email' => $request->rut,
+            'rut' => $request->rut,
+            'email' => null,
             'nombre' => $request->nombre,
             'apellido_paterno' => null,
             'apellido_materno' => null,
