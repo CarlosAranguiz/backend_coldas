@@ -14,13 +14,13 @@ class ApiController extends Controller
     public function loginApi(Request $request)
     {
         $request->validate([
-            'rut' => ['required','string'],
+            'email' => ['required','string'],
             'password' => ['required'],
             'latitud' => ['required'],
             'longitud' => ['required']
-        ],['email.required' => 'Debe ingresar un rut','password.required' => 'Debe ingresar una contraseña']);
+        ],['email.required' => 'Debe ingresar un correo electrónico','password.required' => 'Debe ingresar una contraseña']);
 
-        $user = User::where(['rut' => $request->rut])->first();
+        $user = User::where(['email' => $request->rut])->first();
         if($user && Hash::check($request->password, $user->password)){
             $user->latitud = $request->latitud;
             $user->longitud = $request->longitud;
@@ -39,17 +39,17 @@ class ApiController extends Controller
     public function registroAlumno(Request $request)
     {
         $request->validate([
-            'rut' => ['required','string','max:12'],
+            'email' => ['required','string'],
             'nombre' => ['required','string'],
             'password' => ['required','confirmed'],
         ],[
-            'email.required' => 'Debe ingresar el rut',
+            'email.required' => 'Debe ingresar el correo electrónico',
             'nombre.required' => 'Debe ingresar el nombre',
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
         $alumno = User::create([
-            'rut' => $request->rut,
-            'email' => null,
+            'rut' => null,
+            'email' => $request->email,
             'nombre' => $request->nombre,
             'apellido_paterno' => null,
             'apellido_materno' => null,
