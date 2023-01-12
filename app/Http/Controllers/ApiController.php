@@ -14,13 +14,13 @@ class ApiController extends Controller
     public function loginApi(Request $request)
     {
         $request->validate([
-            'email' => ['required','string'],
+            'email' => ['required'],
             'password' => ['required'],
             'latitud' => ['required'],
             'longitud' => ['required']
         ],['email.required' => 'Debe ingresar un correo electrónico','password.required' => 'Debe ingresar una contraseña']);
 
-        $user = User::where(['email' => $request->rut])->first();
+        $user = User::where(['email' => $request->email])->first();
         if($user && Hash::check($request->password, $user->password)){
             $user->latitud = $request->latitud;
             $user->longitud = $request->longitud;
