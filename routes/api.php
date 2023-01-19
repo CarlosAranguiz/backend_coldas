@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth:sanctum'],function(){
     Route::get('historial-practica',[PracticaController::class,'obtenerHistorial'])->name('historial_practica');
     Route::post('marcar-asistencia',[PracticaController::class,'marcarAsistencia'])->name('marcar_asistencia');
     Route::post('borrar-cuenta',[ApiController::class,'borrarCuenta'])->name('borrar_cuenta');
+    Route::post('subir-imagen',[ApiController::class,'subirImagen'])->name('api.subirimagen');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
