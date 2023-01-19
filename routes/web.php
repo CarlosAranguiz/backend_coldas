@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
+Route::get('/',[HomeController::class,'index'])->name('/');
 Route::get('/login',[UserController::class,'loginView'])->name('loginview');
 Route::post('/login',[UserController::class,'login'])->name('loginpost');
 
