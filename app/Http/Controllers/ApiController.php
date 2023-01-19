@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
 {
@@ -47,6 +48,8 @@ class ApiController extends Controller
             'nombre.required' => 'Debe ingresar el nombre',
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
+
+        $carrera = Carrera::where(['nombre_carrera' => 'Visita'])->get()->first();
         $alumno = User::create([
             'rut' => null,
             'email' => $request->email,
@@ -54,8 +57,7 @@ class ApiController extends Controller
             'apellido_paterno' => null,
             'apellido_materno' => null,
             'nombre_social' => null,
-            'email' => null,
-            'id_carrera' => 10,
+            'id_carrera' => $carrera->id,
             'password'=> Hash::make($request->password),
         ]);
         $usuario = new UserResource($alumno);
@@ -71,6 +73,31 @@ class ApiController extends Controller
         $usuario->delete();
         $response['ok'] = true;
         $response['msg'] = 'Cuenta eliminada con exito!';
+    }
+
+    public function subirImagen(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $request->validate([
+            'imagen' => 'required|file|image|mimes:jpeg,png,gif,jpg|max:4096',
+        ]);
+        if ($request->hasFile('imagen')) {
+            $image = $request->file('imagen');
+            $nombre = date('dmYHmi_') . mt_rand() . '_' . $user->id . '.jpg';
+            $storage = Storage::putFileAs('imagenes/user/' . $user->id, $image, $nombre);
+            $url = Storage::url($storage);
+            $user->profile_photo_path = $url;
+            $user->save();
+            // dd($storage, $url);
+            $response["ok"] = true;
+            $response["msg"] = 'Imagen subida correctamente.';
+            $response["foto_perfil"] = $url;
+            return $response;
+        } else {
+            $response["ok"] = false;
+            $response["message"] = 'Debe subir una imagen.';
+            return $response;
+        }
     }
 
 

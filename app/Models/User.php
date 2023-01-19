@@ -80,13 +80,13 @@ class User extends Authenticatable
     protected $fillable = [
         'rut',
         'nombre',
+        'email',
         'apellido_paterno',
         'apellido_materno',
         'nombre_social',
         'fecha_nacimiento',
         'telefono',
         'id_carrera',
-        'email',
         'password',
         'profile_photo_url'
     ];
