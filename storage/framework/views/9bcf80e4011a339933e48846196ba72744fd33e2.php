@@ -1,27 +1,27 @@
-@extends('layouts.simple.master')
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/datatables.css')}}">
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/vendors/datatables.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-title')
+<?php $__env->startSection('breadcrumb-title'); ?>
 <h3>Universidades</h3>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-items')
+<?php $__env->startSection('breadcrumb-items'); ?>
 <li class="breadcrumb-item">Administracíon</li>
 <li class="breadcrumb-item">Universidades</li>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('style')
-@endsection
+<?php $__env->startSection('style'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
-    @if (Session::has('message'))
-    <div class="alert {{ Session::get('alert') }} dark alert-dismissible fade show" role="alert">{{Session::get('message')}}
+    <?php if(Session::has('message')): ?>
+    <div class="alert <?php echo e(Session::get('alert')); ?> dark alert-dismissible fade show" role="alert"><?php echo e(Session::get('message')); ?>
+
         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
      </div>
-    @endif
+    <?php endif; ?>
 	<div class="row">
 		<!-- Flexible table width Starts-->
 		<div class="col-sm-12">
@@ -31,7 +31,7 @@
                         <div class="col-12">
                             <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#crearUniversidad">Crear Universidad</a>
                             <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#modalImportar">Importar Universidades</a>
-                            <a class="btn btn-pill btn-primary btn-air-primary" href="{{ asset('assets/plantillas/Plantilla_Universidades.xlsx') }}">Plantilla Universidades</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(asset('assets/plantillas/Plantilla_Universidades.xlsx')); ?>">Planilla Universidades</a>
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
@@ -43,14 +43,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($universidades as $universidad)
+                                    <?php $__currentLoopData = $universidades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $universidad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr class="odd">
-                                            <td>{{ $universidad->nombre_universidad ?? 'No posee' }}</td>
+                                            <td><?php echo e($universidad->nombre_universidad ?? 'No posee'); ?></td>
                                             <td style="width: 15%">
-                                            {{-- <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-id="{{ $universidad->id }}">Eliminar</button> --}}
-                                            <a href="{{ route('universidad.detalle',$universidad->id) }}" class="btn btn-dark" type="button">Carreras</a></td>
+                                            
+                                            <a href="<?php echo e(route('universidad.detalle',$universidad->id)); ?>" class="btn btn-dark" type="button">Carreras</a></td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
 						</table>
 					</div>
@@ -66,8 +66,8 @@
             <h5 class="modal-title" id="exampleModalLabel">Crear Universidad</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="{{ route('universidad.store') }}" method="POST">
-                @csrf
+            <form action="<?php echo e(route('universidad.store')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
@@ -91,8 +91,8 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Alumno</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('alumnos.delete') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+            <form action="<?php echo e(route('alumnos.delete')); ?>" method="POST" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
@@ -116,8 +116,8 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Importar Alumnos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('universidad.import') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+            <form action="<?php echo e(route('universidad.import')); ?>" method="POST" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="modal-body">
                 <div class="row mt-2">
                     <div class="col-12">
@@ -134,9 +134,10 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/universidad/datatable.js')}}"></script>
-@endsection
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/universidad/datatable.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/wezate/Documents/Backend/backend_coldas/resources/views/administracion/universidades/list.blade.php ENDPATH**/ ?>

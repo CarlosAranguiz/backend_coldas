@@ -1,27 +1,27 @@
-@extends('layouts.simple.master')
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/datatables.css')}}">
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/vendors/datatables.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-title')
+<?php $__env->startSection('breadcrumb-title'); ?>
 <h3>Alumnos</h3>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-items')
+<?php $__env->startSection('breadcrumb-items'); ?>
 <li class="breadcrumb-item">Administracíon</li>
 <li class="breadcrumb-item">Alumnos</li>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('style')
-@endsection
+<?php $__env->startSection('style'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
-    @if (Session::has('message'))
-    <div class="{{ Session::get('alert') }} dark alert-dismissible fade show" role="alert">{{Session::get('message')}}
+    <?php if(Session::has('message')): ?>
+    <div class="<?php echo e(Session::get('alert')); ?> dark alert-dismissible fade show" role="alert"><?php echo e(Session::get('message')); ?>
+
         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
      </div>
-    @endif
+    <?php endif; ?>
 	<div class="row">
 		<!-- Flexible table width Starts-->
 		<div class="col-sm-12">
@@ -29,9 +29,9 @@
 				<div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <a class="btn btn-pill btn-primary btn-air-primary" href="{{ route('alumnos.form.create') }}">Crear Alumno</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(route('alumnos.form.create')); ?>">Crear Alumno</a>
                             <button data-bs-toggle="modal" data-bs-target="#modalImportar" class="btn btn-pill btn-primary btn-air-primary">Importar</button>
-                            <a class="btn btn-pill btn-primary btn-air-primary" href="{{ asset('assets/plantillas/Plantilla_Alumnos.xlsx') }}">Plantilla Alumnos</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(asset('assets/plantillas/Plantilla_Alumnos.xlsx')); ?>">Plantilla Alumnos</a>
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
@@ -52,22 +52,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($usuarios as $usuario)
+                                    <?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $usuario): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr class="odd">
-                                            <td>{{$usuario->id}}</td>
-                                            <td>{{ $usuario->rut ?? 'No posee' }}</td>
-                                            <td>{{ $usuario->nombre }}</td>
-                                            <td>{{ $usuario->apellido_paterno }}</td>
-                                            <td>{{ $usuario->apellido_materno }}</td>
-                                            <td>{{ $usuario->nombre_social ?? 'No posee' }}</td>
-                                            <td>{{ $usuario->email ?? 'No posee' }}</td>
-                                            <td>{{ $usuario->telefono ?? 'No posee' }}</td>
-                                            <td>{{ $usuario->carrera->universidad ?? 'No posee' }}</td>
-                                            <td>{{ $usuario->carrera->nombre_carrera ?? 'No posee' }}</td>
-                                            <td style="width: 13%"><button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-id="{{ $usuario->id }}">Eliminar</button>
-                                            <a href="{{ route('alumnos.detalle',$usuario->id) }}" class="btn btn-dark" type="button">Ver</a></td>
+                                            <td><?php echo e($usuario->id); ?></td>
+                                            <td><?php echo e($usuario->rut ?? 'No posee'); ?></td>
+                                            <td><?php echo e($usuario->nombre); ?></td>
+                                            <td><?php echo e($usuario->apellido_paterno); ?></td>
+                                            <td><?php echo e($usuario->apellido_materno); ?></td>
+                                            <td><?php echo e($usuario->nombre_social ?? 'No posee'); ?></td>
+                                            <td><?php echo e($usuario->email ?? 'No posee'); ?></td>
+                                            <td><?php echo e($usuario->telefono ?? 'No posee'); ?></td>
+                                            <td><?php echo e($usuario->carrera->universidad ?? 'No posee'); ?></td>
+                                            <td><?php echo e($usuario->carrera->nombre_carrera ?? 'No posee'); ?></td>
+                                            <td style="width: 13%"><button class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-id="<?php echo e($usuario->id); ?>">Eliminar</button>
+                                            <a href="<?php echo e(route('alumnos.detalle',$usuario->id)); ?>" class="btn btn-dark" type="button">Ver</a></td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
 						</table>
 					</div>
@@ -83,16 +83,16 @@
                     <h5 class="modal-title" id="exampleModalLabelDefault">Importar Alumnos</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('alumnos.importar') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+                <form action="<?php echo e(route('alumnos.importar')); ?>" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label">Universidad</label>
                             <select class="form-select" name="universidadImportar" id="universidadImportar">
-                                @foreach ($universidades as $universidad)
-                                    <option value="{{ $universidad->id }}">{{ $universidad->nombre_universidad }}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $universidades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $universidad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($universidad->id); ?>"><?php echo e($universidad->nombre_universidad); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
                     </div>
@@ -118,8 +118,8 @@
                     <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Alumno</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('alumnos.delete') }}" method="POST" enctype="multipart/form-data">
-                @csrf
+                <form action="<?php echo e(route('alumnos.delete')); ?>" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
@@ -136,9 +136,10 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/alumnos/alumnos.js')}}"></script>
-@endsection
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/alumnos/alumnos.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/wezate/Documents/Backend/backend_coldas/resources/views/administracion/alumnos/list.blade.php ENDPATH**/ ?>

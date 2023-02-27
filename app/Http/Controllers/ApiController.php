@@ -67,14 +67,6 @@ class ApiController extends Controller
         return response($response);
     } 
 
-    public function borrarCuenta()
-    {
-        $usuario = User::find(auth()->user()->id);
-        $usuario->delete();
-        $response['ok'] = true;
-        $response['msg'] = 'Cuenta eliminada con exito!';
-    }
-
     public function subirImagen(Request $request)
     {
         $user = User::find(auth()->user()->id);
@@ -105,6 +97,15 @@ class ApiController extends Controller
     {
         $carreras = Carrera::where(['id_universidad' => $id])->get();
         $response['data'] = $carreras;
+        return $response;
+    }
+
+    public function eliminar_cuenta(Request $request)
+    {
+        $id = $request->id_usuario;
+        User::find($id)->delete();
+        $response['ok'] = true;
+        $response['msj'] = 'Cuenta eliminada con exito!';
         return $response;
     }
 }

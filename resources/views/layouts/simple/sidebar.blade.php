@@ -29,10 +29,12 @@
 						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/dashboard' ? 'active' : '' }}" href="#"><i data-feather="settings"></i><span class="lan-3">Administración</span>
 							<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/dashboard' ? 'down' : 'right' }}"></i></div>
 						</a>
-						<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/dashboard' ? 'block;' : 'none;' }}">
+						<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/administracion' ? 'block;' : 'none;' }}">
 							<li><a class="lan-4 {{ Route::currentRouteName()=='alumnos.list' ? 'active' : '' }}" href="{{route('alumnos.list')}}">Alumnos</a></li>
 							<li><a class="lan-4 {{ Route::currentRouteName()=='universidad.list' ? 'active' : '' }}" href="{{route('universidad.list')}}">Universidades</a></li>
 							<li><a class="lan-4 {{ Route::currentRouteName()=='codigos.list' ? 'active' : '' }}" href="{{route('codigos.list')}}">CodigosQR</a></li>
+							<li><a class="lan-4 {{ Route::currentRouteName()=='categorias.list' ? 'active' : '' }}" href="{{route('categorias.list')}}">Categorias</a></li>
+							<li><a class="lan-4 {{ Route::currentRouteName()=='publicaciones.list' ? 'active' : '' }}" href="{{route('publicaciones.list')}}">Publicaciones</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-list">

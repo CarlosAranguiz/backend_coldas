@@ -3,9 +3,12 @@
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\QRController;
+use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\UniversidadController;
 use App\Http\Controllers\UserController;
+use App\Models\Subcategoria;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +50,16 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
         Route::prefix('historial')->group(function (){
             Route::get('/',[HistorialController::class,'index'])->name('historial.list');
             Route::post('/liberar',[HistorialController::class,'limpiarDispositivo'])->name('historial.limpiar');
+        });
+
+        Route::prefix('categorias')->group(function (){
+            Route::get('/',[SubcategoriaController::class,'index'])->name('categorias.list');
+            Route::post('/',[SubcategoriaController::class,'store'])->name('categorias.store');
+        });
+
+        Route::prefix('publicaciones')->group(function(){
+            Route::get('/',[PublicacionController::class,'index'])->name('publicaciones.list');
+            Route::post('/',[PublicacionController::class,'store'])->name('publicaciones.add');
         });
     });
 });

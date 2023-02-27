@@ -15,6 +15,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class AlumnosImport implements ToCollection,WithHeadingRow
 {
+    private int $universidad;
 
     public function __construct($universidad) {
         $this->universidad = $universidad;
