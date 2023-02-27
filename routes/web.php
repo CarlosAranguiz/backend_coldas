@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
             Route::get('/',[QRController::class,'index'])->name('codigos.list');
             Route::get('/{id}',[QRController::class,'verQR'])->name('codigos.ver');
             Route::post('/add',[QRController::class,'store'])->name('codigos.crear');
+            Route::post('/eliminar-codigo',[QRController::class,'eliminarQR'])->name('codigos.eliminar');
         });
 
         Route::prefix('historial')->group(function (){
@@ -55,11 +56,13 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
         Route::prefix('categorias')->group(function (){
             Route::get('/',[SubcategoriaController::class,'index'])->name('categorias.list');
             Route::post('/',[SubcategoriaController::class,'store'])->name('categorias.store');
+            Route::post('/eliminar-categoria',[SubcategoriaController::class,'eliminar_categorias'])->name('categorias.eliminar');
         });
 
         Route::prefix('publicaciones')->group(function(){
             Route::get('/',[PublicacionController::class,'index'])->name('publicaciones.list');
             Route::post('/',[PublicacionController::class,'store'])->name('publicaciones.add');
+            Route::post('/eliminar',[PublicacionController::class,'eliminarPublicacion'])->name('publicaciones.delete');
         });
     });
 });

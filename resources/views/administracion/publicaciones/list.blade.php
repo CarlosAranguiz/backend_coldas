@@ -51,7 +51,7 @@
                                             <td><a target="_blank" href="{{ $publicacion->ruta_documento }}">{{$publicacion->ruta_documento != null ? 'Documento' :'No posee'}}</td>
                                             <td>{{ $publicacion->subCategoria->tema.' - '.$publicacion->subCategoria->categoria}}</td>
                                             <td style="width: 15%">
-                                            <a href="{{ route('universidad.detalle',$publicacion->id) }}" class="btn btn-dark" type="button">Carreras</a></td>
+                                            <a data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-whatever="{{ $publicacion->id }}" class="btn btn-dark" type="button">Eliminar</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -107,10 +107,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Publicación</h5>
+                <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Categoria</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('alumnos.delete') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('publicaciones.delete') }}" method="POST">
             @csrf
             <div class="modal-body">
                 <div class="row">
@@ -133,4 +133,15 @@
 @section('script')
 <script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/universidad/datatable.js')}}"></script>
+<script>
+    var exampleModal = document.getElementById('modalEliminar')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+    console.log(recipient)
+    document.getElementById('idEliminar').value = recipient;
+    })
+</script>
 @endsection

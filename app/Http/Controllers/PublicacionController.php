@@ -110,4 +110,12 @@ class PublicacionController extends Controller
         return $response;
     }
 
+    public function eliminarPublicacion(Request $request)
+    {
+        Publicacion::find($request->idEliminar)->delete();
+        Session::flash('message','Categoria eliminada con exito!');
+        Session::flash('alert','alert-success');
+        return redirect()->back();
+    }
+
 }

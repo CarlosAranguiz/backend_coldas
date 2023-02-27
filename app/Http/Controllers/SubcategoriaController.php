@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Publicacion;
 use App\Models\Subcategoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -102,5 +103,14 @@ class SubcategoriaController extends Controller
         $response['ok'] = true;
         $response['categorias'] = $scategorias;
         return $response;
+    }
+
+    public function eliminar_categorias(Request $request)
+    {
+        Subcategoria::find($request->idEliminar)->delete();
+        Publicacion::where('subcategoria',$request->idEliminar)->delete();
+        Session::flash('message','Categoria eliminada con exito!');
+        Session::flash('alert','alert-success');
+        return redirect()->back();
     }
 }

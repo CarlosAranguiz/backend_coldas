@@ -47,7 +47,7 @@
                                             <td>{{ $subcategoria->tema ?? 'No posee' }}</td>
                                             <td>{{ $subcategoria->categoria ?? 'No posee' }}</td>
                                             <td style="width: 15%">
-                                            <a href="{{ route('universidad.detalle',$subcategoria->id) }}" class="btn btn-dark" type="button">Carreras</a></td>
+                                            <a data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-whatever="{{ $subcategoria->id }}" class="btn btn-dark" type="button">Eliminar</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -130,16 +130,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Alumno</h5>
+                <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Categoria</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('alumnos.delete') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('categorias.eliminar') }}" method="POST">
             @csrf
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
                         <input type="hidden" name="idEliminar" id="idEliminar">
-                        <center>¿Esta seguro que desea eliminar el alumno?</center>
+                        <center>¿Esta seguro que desea eliminar la categoria?</center>
                     </div>
                 </div>
             </div>
@@ -181,4 +181,15 @@
 @section('script')
 <script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/universidad/datatable.js')}}"></script>
+<script>
+    var exampleModal = document.getElementById('modalEliminar')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+    // Button that triggered the modal
+    var button = event.relatedTarget
+    // Extract info from data-bs-* attributes
+    var recipient = button.getAttribute('data-bs-whatever')
+    console.log(recipient)
+    document.getElementById('idEliminar').value = recipient;
+    })
+</script>
 @endsection

@@ -38,4 +38,12 @@ class QRController extends Controller
         $codigo = Codigos::find($id);
         return QrCode::size(256)->generate($codigo->texto_qr.'+'.$codigo->texto_encriptado); 
     }
+
+    public function eliminarQR(Request $request)
+    {
+        Codigos::find($request->idEliminar)->delete();
+        Session::flash('message','Codigo eliminado con exito!');
+        Session::flash('alert','alert-success');
+        return redirect()->back();
+    }
 }
