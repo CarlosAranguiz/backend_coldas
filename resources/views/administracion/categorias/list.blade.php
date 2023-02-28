@@ -93,6 +93,7 @@
                                 <option value="Dental">Dental</option>
                                 <option value="Dermatología">Dermatología</option>
                                 <option value="Esterilización">Esterilización</option>
+                                <option value="Extensión">Extensión</option>
                                 <option value="Farmacia">Farmacia</option>
                                 <option value="Ginecología y Obstetricia">Ginecología y Obstetricia</option>
                                 <option value="Hosp Domiciliaria">Hosp Domiciliaria</option>
