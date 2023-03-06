@@ -21,7 +21,7 @@ class PracticaController extends Controller
         ->where('fecha_inicio','>=',Carbon::today())
         ->orderBy('fecha_inicio','asc')
         ->get()->first();
-        return response()->json(['ok'=>true,'practica' => $practica_activa]);
+        return response()->json(['ok'=>true,'practica' => $practica_activa,'hoy' => Carbon::today()]);
     }
 
     public function obtenerHistorial()
