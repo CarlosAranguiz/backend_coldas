@@ -11,16 +11,20 @@ use App\Models\Setting;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PracticaController extends Controller
 {
     public function practicaActiva()
     {
+        
+        DB::enableQueryLog();
         $practica_activa = Practica::where(['usuarioId' => auth()->user()->id])
         ->where('hora_registro_termino',null)
         ->where('fecha_inicio','>=',Carbon::today())
         ->orderBy('fecha_inicio','asc')
-        ->get()->first();
+        ->first();
+        dd(DB::getQueryLog());
         return response()->json(['ok'=>true,'practica' => $practica_activa,'hoy' => Carbon::today()]);
     }
 
