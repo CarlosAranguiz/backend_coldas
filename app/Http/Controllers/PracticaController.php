@@ -76,7 +76,7 @@ class PracticaController extends Controller
                     $today = Carbon::now();
                     if($today->toDateString() === $fecha->toDateString()){
                         $distance = $this->distance($usuario->latitud, $usuario->longitud, $settings->latitud, $settings->longitud);
-                        if($distance < 2000){
+                        if($distance < 3000){
                             if($practica_activa->hora_registro_inicio != null){
                                 $practica_activa->hora_registro_termino = Carbon::now()->format('H:i');
                                 $practica_activa->save();
@@ -145,7 +145,7 @@ class PracticaController extends Controller
                     $today = Carbon::now();
                     if($today->toDateString() === $fecha->toDateString()){
                         $distance = $this->distance($usuario->latitud, $usuario->longitud, $settings->latitud, $settings->longitud);
-                        if($distance < 2000){
+                        if($distance < 3000){
                             if($practica_activa->hora_registro_inicio != null){
                                 $practica_activa->hora_registro_termino = Carbon::now()->format('H:i');
                                 $practica_activa->save();
