@@ -178,7 +178,7 @@ class PracticaController extends Controller
                     'usuarioId' => $usuario->id,
                     'descripcion' => 'Marca asistencia con un dispositivo registrado en otro alumno'
                 ]);
-                $response['msg'] = 'No puede registrar el dispositivo, dirigete a COLDAS para solucionarlo.';
+                $response['msg'] = 'Este dispositivo no esta registrado en tu cuenta, dirigete al departamento formación, extensión Y RAD para solucionarlo.';
                 return $response;
             }
         }
