@@ -109,6 +109,7 @@
                                             @if ($universidad->id == $usuario->carrera->id_universidad)
 												<option selected value="{{ $universidad->id }}">{{ $universidad->nombre_universidad }}</option>
 											@endif
+											<option value="{{ $universidad->id }}">{{ $universidad->nombre_universidad }}</option>
                                         @endforeach
                                     </select>
 								</div>
