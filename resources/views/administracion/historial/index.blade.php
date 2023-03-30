@@ -47,8 +47,8 @@
                                     @foreach ($historiales as $historial)
                                         <tr class="odd">
                                             <td>{{ $historial->alumno->rut ?? 'NO HAY REGISTRO' }}</td>
-                                            <td>{{ $historial->alumno->nombre.' '.$historial->alumno->apellido_paterno ?? 'No posee' }}</td>
-                                            <td>{{ $historial->descripcion }}</td>
+                                            <td>{{ $historial->alumno->nombre ?? 'NO HAY REGISTRO '.' '.$historial->alumno->apellido_paterno ?? 'No posee' }}</td>
+                                            <td>{{ $historial->descripcion ?? 'NO HAY REGISTRO' }}</td>
                                             <td>{{ $historial->created_at }}</td>
                                             <td style="width: 13%">
                                             </td>
