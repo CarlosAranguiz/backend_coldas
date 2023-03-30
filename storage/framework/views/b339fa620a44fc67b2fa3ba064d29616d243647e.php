@@ -30,7 +30,7 @@
 			<div class="col-xl-4">
 				<div class="card">
 					<div class="card-header">
-						<h4 class="card-title mb-0">Perfil Alumno</h4>
+						<h4 class="card-title mb-0">Perfil Alumno <div class="float-end"><a style="font-size:14px;" href="<?php echo e(route('alumnos.list')); ?>">Volver</a></div></h4>
 						<div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
 					</div>
 					<div class="card-body">
@@ -54,8 +54,10 @@
 				<form action="<?php echo e(route('alumnos.update',$usuario->id)); ?>" method="POST" class="card">
                     <?php echo csrf_field(); ?>
 					<div class="card-header">
-						<h4 class="card-title mb-0">Edit Profile</h4>
-						<div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+						<h4 class="card-title mb-0">Editar Alumno</h4>
+						<div class="card-options">
+							<a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a>
+						</div>
 					</div>
 					<div class="card-body">
 						<div class="row">
@@ -109,6 +111,7 @@
                                             <?php if($universidad->id == $usuario->carrera->id_universidad): ?>
 												<option selected value="<?php echo e($universidad->id); ?>"><?php echo e($universidad->nombre_universidad); ?></option>
 											<?php endif; ?>
+											<option value="<?php echo e($universidad->id); ?>"><?php echo e($universidad->nombre_universidad); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
 								</div>
@@ -136,7 +139,12 @@
 						<div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i class="fe fe-x"></i></a></div>
 					</div>
 					<div class="card-body">
-                        <div class="table-responsive">
+						<div class="row">
+							<div class="col-12">
+								<button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modalCrearPractica">Crear Practica</button>
+							</div>
+						</div>
+                        <div class="table-responsive mt-3">
                             <table id="tablaPracticas" class="table card-table table-vcenter text-nowrap">
                                 <thead>
                                     <tr>
@@ -171,6 +179,70 @@
                     </div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modalCrearPractica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelDefault">Asignar Practica</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form action="<?php echo e(route('alumnos.asignar_practica')); ?>" method="POST">
+			<?php echo csrf_field(); ?>
+				<div class="modal-body">
+					<div class="row">
+						<input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo e($usuario->id); ?>">
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Campo Clinico</label>
+							<input name="campo_clinico" type="text" class="form-control" />
+						</div>
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Nivel Cursado</label>
+							<input name="nivel_cursado" type="text" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Docente</label>
+							<input name="docente" required type="text" class="form-control" />
+						</div>
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Telefono Docente</label>
+							<input name="telefono_docente" required type="text" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="mb-3 col-md-12 col-sm-12">
+							<label class="form-label">Tipo de Practica</label>
+							<input name="tipo_practica" required type="text" class="form-control" />
+						</div>
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Fecha Inicio</label>
+							<input name="fecha_inicio" required type="date" class="form-control" />
+						</div>
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Fecha Fin</label>
+							<input name="fecha_fin" required type="date" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Hora Entrada</label>
+							<input name="hora_entrada" type="time" class="form-control" />
+						</div>
+						<div class="mb-3 col-md-6 col-sm-12">
+							<label class="form-label">Hora Salida</label>
+							<input name="hora_salida" type="time" class="form-control" />
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+			</form>
 		</div>
 	</div>
 </div>

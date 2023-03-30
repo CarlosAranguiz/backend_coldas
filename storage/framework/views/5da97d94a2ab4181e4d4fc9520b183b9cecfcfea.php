@@ -33,7 +33,7 @@
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
-						<table class="table cell-border" id="alumnos">
+						<table class="table cell-border" id="historial">
 							<thead>
                                 <tr>
                                     <th class="text-muted text-small text-uppercase">RUT</th>
@@ -92,6 +92,10 @@
 
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/js/alumnos/alumnos.js')); ?>"></script>
+<script>
+    $(document).ready(function(){
+        $('#historial').DataTable({});
+    });
+</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/wezate/Documents/Backend/backend_coldas/resources/views/administracion/historial/index.blade.php ENDPATH**/ ?>

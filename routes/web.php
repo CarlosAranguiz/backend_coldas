@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PracticaController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\SubcategoriaController;
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
         Route::get('alumnos/{id}',[UserController::class,'userdetail'])->name('alumnos.detalle');
         Route::post('alumnos/{id}',[UserController::class,'update'])->name('alumnos.update');
         Route::post('delete/alumnos/',[UserController::class,'delete'])->name('alumnos.delete');
+        Route::post('practica/asignar-alumno',[PracticaController::class,'crear_practica'])->name('alumnos.asignar_practica');
 
         Route::prefix('universidades')->group(function () {
             Route::get('/',[UniversidadController::class,'index'])->name('universidad.list');

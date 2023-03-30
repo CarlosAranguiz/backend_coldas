@@ -31,7 +31,7 @@
                         <div class="col-12">
                             <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#crearUniversidad">Crear Universidad</a>
                             <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#modalImportar">Importar Universidades</a>
-                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(asset('assets/plantillas/Plantilla_Universidades.xlsx')); ?>">Planilla Universidades</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(asset('assets/plantillas/Plantilla_Universidades.xlsx')); ?>">Plantilla Universidades</a>
                         </div>
                     </div>
 					<div class="table-responsive mt-2">

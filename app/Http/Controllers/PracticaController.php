@@ -12,6 +12,8 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Date;
 
 class PracticaController extends Controller
 {
@@ -183,4 +185,39 @@ class PracticaController extends Controller
             }
         }
     }
+
+    public function crear_practica(Request $request)
+    {
+        
+        $fechaInicio = Carbon::createFromFormat('Y-m-d',$request->fecha_inicio);
+        $fechaTermino =Carbon::createFromFormat('Y-m-d',$request->fecha_fin);
+        $diferenciaEntreDias = date_diff($fechaInicio,$fechaTermino);
+        $diasPractica = $diferenciaEntreDias->days + 1;
+        for ($i=0; $i < $diasPractica; $i++) { 
+            $endParse = Carbon::parse($fechaInicio);
+            $fechaFinal = $endParse->addDays($i);
+            $fechax = $i == 0 ? $endParse->format('Y-m-d') : $fechaFinal->format('Y-m-d');
+            $practica = Practica::where(['fecha_inicio' => $fechax,'fecha_termino' => $fechax,'usuarioId' => $request->id_usuario])->get()->first();
+            $horaInicio = Carbon::parse($request->hora_entrada)->format('H:i');
+            $horaFin = Carbon::parse($request->hora_salida)->format('H:i');
+            if($practica == null){
+                    $practica = Practica::create([
+                        'usuarioId' => $request->id_usuario,
+                        'campo_clinico' => $request->campo_clinico,
+                        'nivel_cursado' => $request->nivel_cursado,
+                        'tipo_practica' => $request->tipo_practica,
+                        'nombre_docente' => $request->docente,
+                        'telefono_docente' => $request->telefono_docente,
+                        'fecha_inicio' => $i == 0 ? $endParse->format('Y-m-d') : $fechaFinal->format('Y-m-d'),
+                        'fecha_termino' => $i == 0 ? $endParse->format('Y-m-d') : $fechaFinal->format('Y-m-d'),
+                        'hora_inicio' => $horaInicio,
+                        'hora_termino' => $horaFin,
+                    ]);
+            }
+        }
+        Session::flash('message','Practica asignada con exito!');
+        Session::flash('alert','alert alert-success');
+        return redirect()->back();
+    }
+
 }

@@ -33,7 +33,7 @@
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
-						<table class="table cell-border" id="alumnos">
+						<table class="table cell-border" id="historial">
 							<thead>
                                 <tr>
                                     <th class="text-muted text-small text-uppercase">RUT</th>
@@ -46,7 +46,7 @@
                                 <tbody>
                                     @foreach ($historiales as $historial)
                                         <tr class="odd">
-                                            <td>{{ $historial->alumno->rut }}</td>
+                                            <td>{{ $historial->alumno->rut ?? 'NO HAY REGISTRO' }}</td>
                                             <td>{{ $historial->alumno->nombre.' '.$historial->alumno->apellido_paterno ?? 'No posee' }}</td>
                                             <td>{{ $historial->descripcion }}</td>
                                             <td>{{ $historial->created_at }}</td>
@@ -92,5 +92,9 @@
 
 @section('script')
 <script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/alumnos/alumnos.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('#historial').DataTable({});
+    });
+</script>
 @endsection
