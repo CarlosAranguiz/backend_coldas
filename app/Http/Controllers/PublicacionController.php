@@ -33,7 +33,7 @@ class PublicacionController extends Controller
         $request->validate([
             'titulo' => ['required'],
         ]);
-        
+
         $publicacion = Publicacion::create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion ?? 'Sin descripción',
@@ -49,10 +49,10 @@ class PublicacionController extends Controller
             $url = Storage::url($storage);
             $publicacion->ruta_documento = $url;
             $publicacion->save();
-            Session::flash('msg','Publicación creada con exito!');
+            Session::flash('msg','Recurso creado con exito!');
             return redirect()->back();
         }
-        Session::flash('msg','Publicación creada con exito!');
+        Session::flash('msg','Recurso creado con exito!');
         return redirect()->back();
     }
 
@@ -107,6 +107,30 @@ class PublicacionController extends Controller
         $publicaciones = Publicacion::where(['subcategoria' => $subcategoria])->get();
         $response['ok'] = true;
         $response['publicaciones'] = $publicaciones;
+        return $response;
+    }
+
+    public function listadoRecursos()
+    {
+        $publicaciones = Publicacion::with('subcategoria')->paginate(10);
+        $response['ok'] = true;
+        $response['recursos'] = $publicaciones;
+        return $response;
+    }
+
+    public function buscarRecurso(Request $request)
+    {
+        $search = $request->input('query');
+        $recursos = Publicacion::query()
+        ->with('subcategoria')
+        ->where('titulo','LIKE',"%{$search}%")
+        ->orWhereHas('subcategoria',function($query) use ($search){
+            $query->where('tema','LIKE',"%{$search}%");
+            $query->orWhere('categoria','LIKE',"%{$search}%");
+        })
+        ->paginate(10);
+        $response['ok'] = true;
+        $response['recursos'] = $recursos;
         return $response;
     }
 

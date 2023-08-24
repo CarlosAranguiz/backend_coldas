@@ -34,7 +34,22 @@
 							<li><a class="lan-4 {{ Route::currentRouteName()=='universidad.list' ? 'active' : '' }}" href="{{route('universidad.list')}}">Universidades</a></li>
 							<li><a class="lan-4 {{ Route::currentRouteName()=='codigos.list' ? 'active' : '' }}" href="{{route('codigos.list')}}">CodigosQR</a></li>
 							<li><a class="lan-4 {{ Route::currentRouteName()=='categorias.list' ? 'active' : '' }}" href="{{route('categorias.list')}}">Categorias</a></li>
-							<li><a class="lan-4 {{ Route::currentRouteName()=='publicaciones.list' ? 'active' : '' }}" href="{{route('publicaciones.list')}}">Publicaciones</a></li>
+						</ul>
+					</li>
+                    <li class="sidebar-list">
+						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/dashboard' ? 'active' : '' }}" href="#"><i data-feather="settings"></i><span class="lan-3">Aplicación</span>
+							<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/dashboard' ? 'down' : 'right' }}"></i></div>
+						</a>
+						<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/administracion' ? 'block;' : 'none;' }}">
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='publicaciones.list' ? 'active' : '' }}" href="{{route('publicaciones.list')}}">Publicaciones</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='eventos.list' ? 'active' : '' }}" href="{{route('eventos.list')}}">Eventos</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='contactos.list' ? 'active' : '' }}" href="{{route('contactos.list')}}">Contacto Alumno</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='nosotros.list' ? 'active' : '' }}" href="{{route('nosotros.list')}}">Departamento</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='convenios.list' ? 'active' : '' }}" href="{{route('convenios.list')}}">Convenios</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='recursos.list' ? 'active' : '' }}" href="{{route('recursos.list')}}">Recursos Educativos</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='links.list' ? 'active' : '' }}" href="{{route('links.list')}}">Links Utiles</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='config' ? 'active' : '' }}" href="{{route('config')}}">Configuración</a></li>
+                            <li><a class="lan-4 {{ Route::currentRouteName()=='informes' ? 'active' : '' }}" href="{{route('informes')}}">Informes</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-list">

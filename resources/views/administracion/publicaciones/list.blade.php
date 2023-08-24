@@ -4,12 +4,12 @@
 @endsection
 
 @section('breadcrumb-title')
-<h3>Publicaciones</h3>
+<h3>Recursos Educativos</h3>
 @endsection
 
 @section('breadcrumb-items')
 <li class="breadcrumb-item">Administracíon</li>
-<li class="breadcrumb-item">Publicaciones</li>
+<li class="breadcrumb-item">Recursos Educativos</li>
 @endsection
 
 @section('style')
@@ -29,7 +29,7 @@
 				<div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#crearPublicacion">Crear Publicación</a>
+                            <a class="btn btn-pill btn-primary btn-air-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#crearPublicacion">Crear Recurso</a>
                         </div>
                     </div>
 					<div class="table-responsive mt-2">
@@ -66,10 +66,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Crear Publicación</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Crear Recurso</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="{{ route('publicaciones.add') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('recursos.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row">

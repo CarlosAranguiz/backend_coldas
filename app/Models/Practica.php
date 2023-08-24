@@ -57,7 +57,7 @@ class Practica extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class,'id','usuarioId');
+        return $this->belongsTo(User::class,'usuarioId','id');
     }
 
 }

@@ -41,16 +41,16 @@ class PracticaController extends Controller
         $lng1 = $lng1 * (pi() / 180);
         $lat2 = $lat2 * (pi() / 180);
         $lng2 = $lng2 * (pi() / 180);
-      
+
         $deltaLat = $lat2 - $lat1;
         $deltaLng = $lng2 - $lng1;
-      
+
         $a = sin($deltaLat / 2)**2 + cos($lat1) * cos($lat2) * sin($deltaLng / 2)**2;
         $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-      
+
         return 6371 * $c * 1000;
       }
-      
+
 
 
     public function marcarAsistencia(Request $request)
@@ -141,7 +141,7 @@ class PracticaController extends Controller
                     ->where('fecha_inicio','>=',Carbon::today())
                     ->orderBy('fecha_inicio','asc')
                     ->get()->first();
-            
+
                     $fechaPractica = $practica_activa->fecha_inicio;
                     $fecha = Carbon::parse($fechaPractica);
                     $today = Carbon::now();
@@ -188,12 +188,12 @@ class PracticaController extends Controller
 
     public function crear_practica(Request $request)
     {
-        
+
         $fechaInicio = Carbon::createFromFormat('Y-m-d',$request->fecha_inicio);
         $fechaTermino =Carbon::createFromFormat('Y-m-d',$request->fecha_fin);
         $diferenciaEntreDias = date_diff($fechaInicio,$fechaTermino);
         $diasPractica = $diferenciaEntreDias->days + 1;
-        for ($i=0; $i < $diasPractica; $i++) { 
+        for ($i=0; $i < $diasPractica; $i++) {
             $endParse = Carbon::parse($fechaInicio);
             $fechaFinal = $endParse->addDays($i);
             $fechax = $i == 0 ? $endParse->format('Y-m-d') : $fechaFinal->format('Y-m-d');

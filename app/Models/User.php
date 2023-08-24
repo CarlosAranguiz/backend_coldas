@@ -132,6 +132,14 @@ class User extends Authenticatable
         return $this->hasMany(Practica::class,'usuarioId','id')->orderBy('fecha_inicio','desc');
     }
 
+    public function prueba(){
+        return $this->hasOne(Resultado::class,'user_id','id');
+    }
+
+    public function postEventAnswers(){
+        return $this->hasMany(PostEventAnswer::class,'user_id','id');
+    }
+
     // public function getEstudiosAttribute()
     // {
     //     $carrera = Carrera::with(['universidad'])->find($this->id_carrera);

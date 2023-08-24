@@ -1,27 +1,27 @@
-@extends('layouts.simple.master')
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/datatables.css')}}">
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/vendors/datatables.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-title')
+<?php $__env->startSection('breadcrumb-title'); ?>
 <h3>Categorias</h3>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('breadcrumb-items')
+<?php $__env->startSection('breadcrumb-items'); ?>
 <li class="breadcrumb-item">Administracíon</li>
 <li class="breadcrumb-item">Categorias</li>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('style')
-@endsection
+<?php $__env->startSection('style'); ?>
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
-    @if (Session::has('message'))
-    <div class="alert {{ Session::get('alert') }} dark alert-dismissible fade show" role="alert">{{Session::get('message')}}
+    <?php if(Session::has('message')): ?>
+    <div class="alert <?php echo e(Session::get('alert')); ?> dark alert-dismissible fade show" role="alert"><?php echo e(Session::get('message')); ?>
+
         <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
      </div>
-    @endif
+    <?php endif; ?>
 	<div class="row">
 		<!-- Flexible table width Starts-->
 		<div class="col-sm-12">
@@ -42,14 +42,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($subcategorias as $subcategoria)
+                                    <?php $__currentLoopData = $subcategorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr class="odd">
-                                            <td>{{ $subcategoria->tema ?? 'No posee' }}</td>
-                                            <td>{{ $subcategoria->categoria ?? 'No posee' }}</td>
+                                            <td><?php echo e($subcategoria->tema ?? 'No posee'); ?></td>
+                                            <td><?php echo e($subcategoria->categoria ?? 'No posee'); ?></td>
                                             <td style="width: 15%">
-                                            <a data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-whatever="{{ $subcategoria->id }}" class="btn btn-dark" type="button">Eliminar</a></td>
+                                            <a data-bs-toggle="modal" data-bs-target="#modalEliminar" data-bs-whatever="<?php echo e($subcategoria->id); ?>" class="btn btn-dark" type="button">Eliminar</a></td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
 						</table>
 					</div>
@@ -65,8 +65,8 @@
             <h5 class="modal-title" id="exampleModalLabel">Crear Categoria</h5>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-            <form action="{{ route('categorias.store') }}" method="POST">
-                @csrf
+            <form action="<?php echo e(route('categorias.store')); ?>" method="POST">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
@@ -134,8 +134,8 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Categoria</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('categorias.eliminar') }}" method="POST">
-            @csrf
+            <form action="<?php echo e(route('categorias.eliminar')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
@@ -159,8 +159,8 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Importar Alumnos</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('universidad.import') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+            <form action="<?php echo e(route('universidad.import')); ?>" method="POST" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="modal-body">
                 <div class="row mt-2">
                     <div class="col-12">
@@ -177,11 +177,11 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-<script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/js/universidad/datatable.js')}}"></script>
+<?php $__env->startSection('script'); ?>
+<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/universidad/datatable.js')); ?>"></script>
 <script>
     var exampleModal = document.getElementById('modalEliminar')
     exampleModal.addEventListener('show.bs.modal', function (event) {
@@ -193,4 +193,6 @@
     document.getElementById('idEliminar').value = recipient;
     })
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.simple.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/carlos/Documents/Backend/backend_coldas/resources/views/administracion/categoria/index.blade.php ENDPATH**/ ?>

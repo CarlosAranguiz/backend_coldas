@@ -17,7 +17,7 @@ class SubcategoriaController extends Controller
     public function index()
     {
         $subcategorias = Subcategoria::all();
-        return view('administracion.categorias.list')->with(['subcategorias' => $subcategorias]);
+        return view('administracion.categoria.index')->with(['subcategorias' => $subcategorias]);
     }
 
     /**

@@ -1,0 +1,951 @@
+[
+    {
+        "id": 1,
+        "question": "En relación a los Eventos Adversos y Eventos Centinelas, señale la alternativa correcta:",
+        "options": [
+          {"text": "Todo evento adverso y centinela debe ser notificado.", "isCorrect": false},
+          {"text": "Para notificar un evento debo dar aviso a mi tutor en primera instancia de forma inmediata.", "isCorrect": false},
+          {"text": "Se debe completar y enviar un formulario de Notificación de Eventos Adversos/Eventos Centinelas al departamento de Calidad.", "isCorrect": false},
+          {"text": "Solo a y c son correctas", "isCorrect": false},
+          {"text": "Todas son correctas", "isCorrect": true}
+        ]
+    },
+    {
+        "id": 2,
+        "question": "¿Cuál de estas características son OBLIGATORIAS para el proceso de acreditación?",
+        "options": [
+          {"text": "Consentimiento Informado", "isCorrect": false},
+          {"text": "Proceso de identificación del paciente", "isCorrect": false},
+          {"text": "Prevención de eventos adversos asociados a procesos asistenciales (caídas, UPP, error de medicación)", "isCorrect": false},
+          {"text": "Ficha clínica única", "isCorrect": false},
+          {"text": "Todas las anteriores", "isCorrect": true}
+        ]
+      },
+      {
+        "id": 3,
+        "question": "El Programa Control de Infecciones (IAAS) del Ministerio de Salud tiene como objetivo (indique la alternativa correcta):",
+        "options": [
+          {"text": "Disminuir las IAAS, en especial aquellas que se asocian a procedimientos invasivos y las que tienen potencial de producir epidemias.", "isCorrect": false},
+          {"text": "Establecer sistema de vigilancia epidemiológica obligatorio y permanente, para todos los hospitales y clínicas, del sector público o privado del país, con indicadores y tasas referenciales nacionales", "isCorrect": false},
+          {"text": "Normar y regular, un sistema permanente para estandarizar los criterios diagnósticos de IAAS.", "isCorrect": false},
+          {"text": "Establecer los procesos de supervisión de las prácticas de atención destinadas a prevenirlas.", "isCorrect": false},
+          {"text": "Todas son correctas", "isCorrect": true}
+        ]
+      },
+      {
+        "id": 4,
+        "question": "La cadena de transmisión de infecciones tiene los siguientes componentes (indique la alternativa correcta):",
+        "options": [
+          {"text": "Agente infeccioso - Puerta de entrada y puerta de salida.", "isCorrect": false},
+          {"text": "Portador – Agente infeccioso – huésped susceptible - vía de transmisión", "isCorrect": false},
+          {"text": "Reservorio – agente infeccioso – puerta de salida – vía de transmisión – puerta de entrada – huésped susceptible", "isCorrect": true},
+          {"text": "Agente infeccioso – puerta de salida – vía de transmisión – puerta de entrada – Paciente", "isCorrect": false},
+          {"text": "Reservorio – vía de transmisión – agente infeccioso – huésped susceptible", "isCorrect": false}
+        ]
+      },
+      {
+        "id": 5,
+        "question": "¿Cuáles son las consecuencias de los eventos adversos en el mundo?",
+        "options": [
+          {
+            "text": "Los eventos adversos debidos a errores en el cuidado médico representan la mayor fuente de morbilidad y mortalidad global.",
+            "isCorrect": true
+          },
+          {
+            "text": "Los eventos adversos debidos a errores en el cuidado médico representan la menor fuente de morbilidad y mortalidad global.",
+            "isCorrect": false
+          },
+          {
+            "text": "Los eventos adversos debidos a errores en el cuidado médico representan la mayor fuente de morbilidad global.",
+            "isCorrect": false
+          },
+          {
+            "text": "Los eventos adversos debidos a errores en el cuidado médico representan la mayor fuente de mortalidad global.",
+            "isCorrect": false
+          },
+          {
+            "text": "Ninguna de las anteriores",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "question": "El rol de los alumnos en CALIDAD es:",
+        "options": [
+          {
+            "text": "Conocer y aplicar protocolos obligatorios y no obligatorios para prevenir RIESGOS",
+            "isCorrect": false
+          },
+          {
+            "text": "Registrar de forma clara y con letra legible",
+            "isCorrect": false
+          },
+          {
+            "text": "Saber y cumplir con las normas de IAAS, precauciones estándar",
+            "isCorrect": false
+          },
+          {
+            "text": "Saber y cumplir con las norma de Identificación de pacientes",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "¿Cuál afirmación es la correcta en relación a los factores de riesgo de IAAS?",
+        "options": [
+          {
+            "text": "Los factores de riesgo relacionados con el huésped tales como, edad, el sexo etc. son poco importantes.",
+            "isCorrect": false
+          },
+          {
+            "text": "Entre un 10 a 20% de las infecciones asociadas a la atención en salud son prevenibles.",
+            "isCorrect": false
+          },
+          {
+            "text": "Los factores de riesgo de la atención de salud no pueden ser modificados",
+            "isCorrect": false
+          },
+          {
+            "text": "Los factores del medio ambiente hospitalario son modificables y de mediana importancia en la prevención de las infecciones asociadas a la atención en salud.",
+            "isCorrect": true
+          },
+          {
+            "text": "La experiencia y capacitación del personal de salud son poco importantes como factor de riesgo de la atención para la producción de una IAAS",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "¿Qué avances en seguridad del paciente hemos tenido en Chile?",
+        "options": [
+          {
+            "text": "Normas sobre seguridad del paciente y calidad de atención respecto de reportes de eventos adversos y eventos centinela.",
+            "isCorrect": false
+          },
+          {
+            "text": "Programa de prevención y Control de Infecciones Asociadas a la Atención de Salud (IAAS)",
+            "isCorrect": false
+          },
+          {
+            "text": "Normas sobre seguridad del pacientes y calidad de atención respecto de prevención de úlceras por presión en pacientes hospitalizados.",
+            "isCorrect": false
+          },
+          {
+            "text": "Normas sobre seguridad del paciente y calidad de atención respecto de reporte de caídas en pacientes hospitalizados.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "¿Cómo se puede contribuir al desarrollo de una cultura de seguridad?",
+        "question_opt":[
+            "I.Uso de listas de chequeo pre-operatorias y pre-anestésicas para prevenir eventos operatorios y post operatorios.",
+            "II.Higiene de manos",
+            "III.Uso de precauciones de barreras para prevenir las infecciones asociadas al cuidado de la salud."
+        ],
+        "options": [
+          {
+            "text": "I,II y III",
+            "isCorrect": true
+          },
+          {
+            "text": "Solo II y III",
+            "isCorrect": false
+          },
+          {
+            "text": "I y IV",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "En relación a los componentes de la Técnica Aséptica, ¿cuál es la alternativa incorrecta?",
+        "options": [
+          {
+            "text": "Se debe preparar la piel con antiséptico antes de realizar procedimientos invasivos.",
+            "isCorrect": false
+          },
+          {
+            "text": "La higiene de manos ante un procedimiento invasivo es del tipo lavado clínico",
+            "isCorrect": true
+          },
+          {
+            "text": "Se debe limitar el número de personas durante el acto quirúrgico.",
+            "isCorrect": false
+          },
+          {
+            "text": "En casos de presencia de vellos en zona operatoria, realizar corte de vellos.",
+            "isCorrect": false
+          },
+          {
+            "text": "Los insumos deben ser esterilizados o haber sido sometidos a Desinfección Alto Nivel.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "question": "Las Precauciones Estándar se deben aplicar al realizar las siguientes acciones (indique la alternativa correcta):",
+        "options": [
+          {
+            "text": "Examinar a un paciente",
+            "isCorrect": false
+          },
+          {
+            "text": "Toma de t° y Presión arterial",
+            "isCorrect": false
+          },
+          {
+            "text": "Colocación de inyección intramuscular",
+            "isCorrect": false
+          },
+          {
+            "text": "Realizar aseo de la cama de un paciente",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "question": "¿Cuáles son las metas internacionales en seguridad del paciente?",
+        "question_opt":[
+            "I.Identificar correctamente a los pacientes, mejorar la comunicación efectiva",
+            "II.Garantizar cirugías en el lugar correcto, con el procedimiento correcto y al paciente correcto",
+            "III.Mejorar la seguridad de los medicamentos de BAJO RIESGO",
+            "IV. Reducir el riesgo de infecciones asociadas a la atención medica V.Reducir el riesgo de daño al paciente por causa de caídas"
+
+        ],
+        "options": [
+          {
+            "text": "I Y III",
+            "isCorrect": false
+          },
+          {
+            "text": "I,II,IV Y V",
+            "isCorrect": true
+          },
+          {
+            "text": "I,III,IV Y V",
+            "isCorrect": false
+          },
+          {
+            "text": "Solo I",
+            "isCorrect": false
+          },
+          {
+            "text": "I,II,III,IV Y V",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "question": "En relación a los elementos de protección personal (EPP) indique la alternativa correcta:",
+        "options": [
+          {
+            "text": "El protector ocular se debe usar sólo en cirugías",
+            "isCorrect": false
+          },
+          {
+            "text": "El uso de guantes reemplaza al lavado de manos",
+            "isCorrect": false
+          },
+          {
+            "text": "Las pecheras protectoras son de uso colectivo",
+            "isCorrect": false
+          },
+          {
+            "text": "Las mascarillas protegen tanto al paciente como al personal",
+            "isCorrect": true
+          },
+          {
+            "text": "El alcohol gel reemplaza completamente el lavado de manos",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "question": "Del aislamiento respiratorio podemos decir (indique la alternativa correcta):",
+        "options": [
+          {
+            "text": "Aplica a microorganismos como la Influenza",
+            "isCorrect": false
+          },
+          {
+            "text": "Se debe mantener la puerta de la habitación abierta.",
+            "isCorrect": false
+          },
+          {
+            "text": "La habitación debe ser individual y se debe usar mascarilla N95.",
+            "isCorrect": true
+          },
+          {
+            "text": "Es necesario presión positiva de aire.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "question": "Del aislamiento por contacto podemos decir (indique la alternativa correcta):",
+        "options": [
+          {
+            "text": "En pacientes con Diarrea por Clostridioides difficile (antes Clostridium)",
+            "isCorrect": true
+          },
+          {
+            "text": "Lavado de manos con clorhexidina jabonosa al 2%",
+            "isCorrect": false
+          },
+          {
+            "text": "Habitación individual obligatoria",
+            "isCorrect": false
+          },
+          {
+            "text": "Uso de guantes estériles",
+            "isCorrect": false
+          },
+          {
+            "text": "No considera el ambiente del paciente",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "question": "¿Cuál de los siguientes aspectos se debe considerar para cumplir con el Derecho a un Trato Digno de los pacientes o usuarios?",
+        "options": [
+          {
+            "text": "Ser llamados por su nombre",
+            "isCorrect": false
+          },
+          {
+            "text": "Proteger la intimidad en la atención",
+            "isCorrect": false
+          },
+          {
+            "text": "Ser tratado de una manera amable y cordial",
+            "isCorrect": false
+          },
+          {
+            "text": "Informar al paciente cada vez que le realizo un procedimiento",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "question": "La primera medida que Ud. debe realizar en caso de sufrir accidente cortopunzante o exposición de mucosas a fluidos corporales de alto riesgo, es:",
+        "options": [
+          {
+            "text": "Avise al Jefe Directo o tutor.",
+            "isCorrect": false
+          },
+          {
+            "text": "Acuda a Urgencia inmediatamente",
+            "isCorrect": false
+          },
+          {
+            "text": "Lave la zona de la lesión con abundante agua y jabón neutro",
+            "isCorrect": true
+          },
+          {
+            "text": "Comience terapia preventiva de acuerdo a protocolo de riesgo",
+            "isCorrect": false
+          },
+          {
+            "text": "Aplique alcohol al 70% en la piel lesionada",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "question": "Los 5 momentos del lavado de manos son:",
+        "options": [
+          {
+            "text": "Antes de un procedimiento invasivo, antes de entrar a la unidad del paciente, antes de preparar medicamentos, antes de realizar una curación, antes de realizar la limpieza de la unidad.",
+            "isCorrect": false
+          },
+          {
+            "text": "Después del contacto con el paciente, antes del contacto con el paciente, antes de la técnica aséptica, después del contacto, después de una intervención quirúrgica.",
+            "isCorrect": false
+          },
+          {
+            "text": "Antes del contacto con el paciente, antes de la técnica aséptica, después de la exposición a fluidos corporales, después del contacto con el ambiente del paciente, después del contacto con el paciente.",
+            "isCorrect": true
+          },
+          {
+            "text": "Antes del aseo de la unidad, antes de un procedimiento invasivo, después de administrar un tratamiento oral, después del contacto con el ambiente del paciente.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "question": "En relación a las siguientes afirmaciones, cuál es la alternativa correcta:",
+        "options": [
+          {
+            "text": "El lavado de manos frecuente es una de las medidas más eficaces para prevenir la propagación del virus COVID-19",
+            "isCorrect": true
+          },
+          {
+            "text": "Se debe utilizar mascarilla N95 siempre al momento de atender a un paciente con sospecha o confirmación de COVID-19",
+            "isCorrect": false
+          },
+          {
+            "text": "La medida más eficaz para prevenir el COVID-19 es el uso de mascarilla quirúrgica permanente.",
+            "isCorrect": false
+          },
+          {
+            "text": "El manejo del medio ambiente no es importante en la prevención del virus COVID-19",
+            "isCorrect": false
+          },
+          {
+            "text": "Ninguna de las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "question": "Del ambiente del paciente (unidad) podemos afirmar (indique la alternativa correcta):",
+        "options": [
+          {
+            "text": "Contribuye a la mantención endémica y epidémica de las infecciones asociadas a la atención de salud.",
+            "isCorrect": false
+          },
+          {
+            "text": "Está colonizado con los mismos microorganismos del paciente.",
+            "isCorrect": false
+          },
+          {
+            "text": "La transmisión posterior a los pacientes es a través de las manos del personal o fómites.",
+            "isCorrect": false
+          },
+          {
+            "text": "Algunos microorganismos pueden sobrevivir por largos periodos de tiempo en las superficies y mantenerse en cantidad suficiente para permitir la transmisión.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "question": "Indique la alternativa correcta",
+        "question_opt": [
+            "I.El acceso y la oportunidad de las atenciones de salud son un derecho, en las patologías GES",
+            "II.El paciente tiene derecho solo a otorgar consentimiento para cirugías y tratamientos complejos",
+            "III.Prevenir ulceras por presión en los pacientes es una actividad que mejora la seguridad de la atención",
+            "IV.Todos los miembros del equipo de salud son responsables de otorgar atenciones seguras para los pacientes V. La identificaciones de pacientes y la cirugía segura son características obligatorias de la acreditación",
+            "V.La identificaciones de pacientes y la cirugía segura son características obligatorias de la acreditación"
+        ],
+        "options": [
+          {
+            "text": "I, II, IV y V",
+            "isCorrect": false
+          },
+          {
+            "text": "I, II, III, IV, V",
+            "isCorrect": false
+          },
+          {
+            "text": "I, III, IV y V",
+            "isCorrect": true
+          },
+          {
+            "text": "Solo I y II",
+            "isCorrect": false
+          },
+          {
+            "text": "II, III y V",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "question": "La secuencia correcta de colocación de los EPP sería:",
+        "options": [
+          {
+            "text": "Colocación de pechera, guantes, mascarilla, antiparra.",
+            "isCorrect": false
+          },
+          {
+            "text": "Colocación de antiparra, mascarilla, escudo facial, pechera y guantes",
+            "isCorrect": false
+          },
+          {
+            "text": "Lavado de manos, pechera, guantes, antiparras o escudo facial y mascarilla",
+            "isCorrect": false
+          },
+          {
+            "text": "Lavado de manos, pechera, mascarilla, antiparra o escudo facial y guantes",
+            "isCorrect": true
+          },
+          {
+            "text": "Ninguna de las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "question": "Cuál de las siguientes afirmaciones es falsa:",
+        "options": [
+          {
+            "text": "La mascarilla N95 debo utilizarla sólo cuando realizo procedimientos que liberan aerosoles.",
+            "isCorrect": false
+          },
+          {
+            "text": "Al momento de ingresar a la unidad con pacientes sospecha o confirmación de COVID-19 debo colocarme siempre, entre otros EPP, algún protector ocular.",
+            "isCorrect": false
+          },
+          {
+            "text": "Solo debo realizar limpieza y desinfección terminal de la unidad al momento del egreso del paciente COVID-19.",
+            "isCorrect": true
+          },
+          {
+            "text": "En el manejo del paciente COVID-19 debo aplicar precauciones estándar, precauciones adicionales por gotita y precauciones adicionales de contacto, salvo que se realice un procedimiento que libere aerosoles en este caso debo aplicar precauciones adicionales respiratorias.",
+            "isCorrect": false
+          },
+          {
+            "text": "Ninguna es falsa",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "question": "Un comportamiento SEGURO se caracteriza por:",
+        "options": [
+          {
+            "text": "Alertar sin miedo sobre el error",
+            "isCorrect": false
+          },
+          {
+            "text": "Ante la duda, pedir ayuda",
+            "isCorrect": false
+          },
+          {
+            "text": "No utilizar distractores como teléfonos celulares, durante la atención clínica de pacientes",
+            "isCorrect": false
+          },
+          {
+            "text": "Confiar cada vez más en la memoria",
+            "isCorrect": false
+          },
+          {
+            "text": "Solo a, b y c",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "question": "Indique la alternativa correcta en relación a la definición de IAAS:",
+        "options": [
+          {
+            "text": "La colonización por un microorganismo es igual que la Infección.",
+            "isCorrect": false
+          },
+          {
+            "text": "Se contrae en relación a la concurrencia a un centro de salud",
+            "isCorrect": true
+          },
+          {
+            "text": "Se manifiestan sólo cuando el paciente está hospitalizado",
+            "isCorrect": false
+          },
+          {
+            "text": "Son eventos adversos de importancia menor en Salud Pública",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "question": "Del aislamiento por gotitas podemos decir (indique la alternativa correcta):",
+        "options": [
+          {
+            "text": "No es necesario una habitación individual, pero debe haber una separación mínima entre paciente de un metro.",
+            "isCorrect": false
+          },
+          {
+            "text": "Uso de mascarilla N95 en todo momento",
+            "isCorrect": false
+          },
+          {
+            "text": "Los pacientes con la misma enfermedad pueden compartir habitación",
+            "isCorrect": false
+          },
+          {
+            "text": "a y b son correctas",
+            "isCorrect": false
+          },
+          {
+            "text": "a y c son correctas",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "question": "En el manejo de desecho cortopunzante, indique la alternativa correcta:",
+        "question_opt":[
+            "I.La remoción de las agujas de las jeringas debe realizarse con pinza.",
+            "II.El material cortopunzante debe eliminarse como residuo especial en bolsas rojas",
+            "III.Las agujas utilizadas en Pacientes se deben eliminar recapsuladas.",
+            "IV.Se debe evitar abandonar agujas desnudas en cualquier lugar"
+        ],
+        "options": [
+          {
+            "text": "Sólo I y II",
+            "isCorrect": false
+          },
+          {
+            "text": "II,III Y IV",
+            "isCorrect": false
+          },
+          {
+            "text": "Sólo II y III",
+            "isCorrect": false
+          },
+          {
+            "text": "Sólo I y IV",
+            "isCorrect": true
+          },
+          {
+            "text": "Todas son correctas",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "question": "¿Qué debemos conocer del sistema de alerta y organización ante una emergencia con riesgo vital del HRLBO?",
+        "options": [
+          {
+            "text": "Su nombre es Clave Azul",
+            "isCorrect": false
+          },
+          {
+            "text": "Se debe llamar al 911",
+            "isCorrect": false
+          },
+          {
+            "text": "Mientras llega el equipo clínico, no se debe dejar solo al paciente y se debe iniciar RCP básico si tiene conocimientos",
+            "isCorrect": false
+          },
+          {
+            "text": "Al momento de llamar debes indicar: clave azul, ubicación, señalar si el paciente es adulto o pediátrico, aportar más antecedentes si se solicitan.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 29,
+        "question": "Los derechos establecidos por la Ley de Derechos y Deberes de las personas son:",
+        "options": [
+          {
+            "text": "Atención oportuna y sin discriminación.",
+            "isCorrect": false
+          },
+          {
+            "text": "Derecho a la información.",
+            "isCorrect": false
+          },
+          {
+            "text": "Trato Digno",
+            "isCorrect": false
+          },
+          {
+            "text": "Acceso y custodia de la ficha clínica.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "question": "El objetivo de Hospital Amigo es:",
+        "options": [
+          {
+            "text": "Cumplir técnicamente con la realización los procedimientos clínicos.",
+            "isCorrect": false
+          },
+          {
+            "text": "Ser acogedor y empático con los pacientes hospitalizados y familiares.",
+            "isCorrect": false
+          },
+          {
+            "text": "Fomentar la participación de la familia en la recuperación del paciente.",
+            "isCorrect": false
+          },
+          {
+            "text": "Alternativas b y c",
+            "isCorrect": true
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "question": "La existencia de Hospital Amigo se basa principalmente en:",
+        "options": [
+          {
+            "text": "En la Ley de transparencia.",
+            "isCorrect": false
+          },
+          {
+            "text": "En el cumplimiento de las Patologías GES",
+            "isCorrect": false
+          },
+          {
+            "text": "En la Ley de Derechos y Deberes de las personas.",
+            "isCorrect": true
+          },
+          {
+            "text": "En el cumplimiento de la categorización de pacientes.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "question": "Dentro de las 10 medidas de Hospital Amigo, cuál no corresponde:",
+        "options": [
+          {
+            "text": "Entrega de información a familiar de paciente hospitalizado.",
+            "isCorrect": false
+          },
+          {
+            "text": "Permitir el acompañamiento nocturno de niños de madre o padre.",
+            "isCorrect": false
+          },
+          {
+            "text": "Permitir el acompañamiento del padre durante el parto.",
+            "isCorrect": true
+          },
+          {
+            "text": "Permitir la alimentación asistida del adulto mayor.",
+            "isCorrect": false
+          },
+          {
+            "text": "Alternativas c y d",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "question": "Dentro de las 10 medidas de Hospital Amigo, una de ellas menciona que el 100% de los pacientes hospitalizados debe estar identificado en la cabecera de su Unidad, los datos que no pueden faltar en forma obligatoria son:",
+        "options": [
+          {
+            "text": "Rut",
+            "isCorrect": false
+          },
+          {
+            "text": "Logo riesgo de caídas",
+            "isCorrect": false
+          },
+          {
+            "text": "Nombre y apellido",
+            "isCorrect": true
+          },
+          {
+            "text": "Solo a y c",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "question": "Dentro de las 10 medidas de Hospital Amigo, una de ellas menciona la cantidad de horas que el familiar puede visitar a su paciente en un servicio de camas básicas son:",
+        "options": [
+          {
+            "text": "4 horas",
+            "isCorrect": false
+          },
+          {
+            "text": "8 horas",
+            "isCorrect": false
+          },
+          {
+            "text": "2 horas",
+            "isCorrect": false
+          },
+          {
+            "text": "6 horas",
+            "isCorrect": true
+          },
+          {
+            "text": "Ninguna de las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "question": "Dentro de las 10 medidas de Hospital Amigo, una de ellas se refiere a que los funcionarios deben:",
+        "options": [
+          {
+            "text": "Portar su identificación al momento de retirarse del establecimiento.",
+            "isCorrect": false
+          },
+          {
+            "text": "Solo es obligación utilizar la identificación en los Servicios Clínicos.",
+            "isCorrect": false
+          },
+          {
+            "text": "Portar la identificación solo con su fotografía.",
+            "isCorrect": false
+          },
+          {
+            "text": "El 100% de los funcionarios debe portar su identificación mientras se encuentran trabajando en el establecimiento.",
+            "isCorrect": true
+          },
+          {
+            "text": "Alternativas c y d",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "question": "El Derecho a Trato Digno, no significa que los funcionarios de la Salud debemos:",
+        "options": [
+          {
+            "text": "Utilizar un lenguaje adecuado",
+            "isCorrect": false
+          },
+          {
+            "text": "Ser amables",
+            "isCorrect": false
+          },
+          {
+            "text": "Identificar a la persona por el número de la Unidad",
+            "isCorrect": true
+          },
+          {
+            "text": "Resguardar el pudor del paciente",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "question": "En relación a la Ley de los Deberes y Derechos de las personas, relacionadas con las atenciones en salud, es cierto que:",
+        "options": [
+          {
+            "text": "Regula los derechos de las personas en sus prestaciones de salud.",
+            "isCorrect": false
+          },
+          {
+            "text": "Es transversal para el sistema público y privado.",
+            "isCorrect": false
+          },
+          {
+            "text": "Promueve la dignidad y la autonomía en la toma de decisiones de las personas.",
+            "isCorrect": false
+          },
+          {
+            "text": "Es responsabilidad de todos los trabajadores de la Salud conocer y aplicar la Ley mencionada.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "question": "El Derecho a la Información significa que debemos:",
+        "options": [
+          {
+            "text": "Entregar una información oportuna, veraz y comprensible",
+            "isCorrect": false
+          },
+          {
+            "text": "Tener la señalética pública y visible de los Derechos y Deberes de las personas.",
+            "isCorrect": false
+          },
+          {
+            "text": "Todos los funcionarios debemos portar nuestra credencial de identificación",
+            "isCorrect": false
+          },
+          {
+            "text": "Entregar información sobre su situación de salud",
+            "isCorrect": false
+          },
+          {
+            "text": "Todas las anteriores.",
+            "isCorrect": true
+          }
+        ]
+      }
+]

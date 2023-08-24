@@ -1,0 +1,128 @@
+{
+    "titulo": "ENCUESTA DE EVALUACIÓN DE ESTUDIANTES EN LA APP",
+    "preguntas": [
+        {
+        "id": 1,
+        "texto": "¿Qué carrera estudias?"
+        },
+        {
+        "id": 2,
+        "texto": "¿Cuál es el nombre de tu institución formadora?"
+        },
+        {
+        "id": 3,
+        "texto": "Indica el servicio o unidad en el que realizaste tu práctica."
+        },
+        {
+        "id": 4,
+        "texto": "¿En qué año académico te encuentras en tu Universidad/Centro de Formación Técnica/Instituto/Colegio?",
+        "opciones": [
+            "Estudiante de primer año",
+            "Estudiante de segundo año",
+            "Estudiante de tercer año",
+            "Estudiante de cuarto año",
+            "Estudiante de quinto año",
+            "Estudiante de internado",
+            "Otro"
+        ]
+        },
+        {
+        "id": 5,
+        "texto": "¿Con cuál sexo te identificas?",
+        "opciones": ["Masculino", "Femenino", "Otro"]
+        },
+        {
+        "id": 6,
+        "texto": "Por favor, selecciona la categoría de edad a la que perteneces.",
+        "opciones": ["18 Años", "19- 25 años", "26- 30 años", "31- 35 años", "36 años y más"]
+        },
+        {
+        "id": 7,
+        "texto": "¿Cómo evaluarías el desempeño del docente/tutor clínico y sus métodos de enseñanza?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 8,
+        "texto": "¿Cómo evaluarías las instalaciones que te ofrece la biblioteca del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 9,
+        "texto": "¿Fue fácil acceder a la biblioteca del hospital?",
+        "opciones": ["Sí", "No"]
+        },
+        {
+        "id": 10,
+        "texto": "¿Cómo clasificarías los servicios que te ofrece la cafetería del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 11,
+        "texto": "¿Cómo clasificarías los productos que te ofrece la cafetería del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 12,
+        "texto": "¿Cómo clasificarías los servicios que te ofrece el casino del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 13,
+        "texto": "¿Cómo clasificarías los productos que te ofrece el casino del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 14,
+        "texto": "¿Cómo evaluarías las instalaciones que te ofrecen las áreas de descanso del hospital (áreas verdes, quinchos, multicancha, entre otros)?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 15,
+        "texto": "¿Cómo evaluarías la limpieza de las instalaciones del hospital?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 16,
+        "texto": "¿Cómo evaluarías los procesos administrativos al interior del hospital en la gestión de documentos?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 17,
+        "texto": "¿Cómo evaluarías el desempeño del Departamento de Extensión, Formación y RAD?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 18,
+        "texto": "¿Cómo evaluarías las actividades de extensión del hospital (jornadas de capacitación, exposición de invitados)?",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 19,
+        "texto": "Si se te da la oportunidad, ¿estás dispuesto a trabajar en el hospital?",
+        "opciones": ["Sí", "No"]
+        },
+        {
+        "id": 20,
+        "texto": "Consideras que la experiencia de tu práctica y la contribución a tu formación profesional en la institución fue",
+        "opciones": ["Muy bueno", "Bueno", "Neutral", "Malo", "Muy malo"]
+        },
+        {
+        "id": 21,
+        "texto": "¿Te sentiste acogido y un aporte para la unidad donde realizaste tu práctica?",
+        "opciones": ["Sí", "No"]
+        },
+        {
+        "id": 22,
+        "texto": "En práctica profesional, ¿sentiste que tu opinión y conocimientos fueron considerados al momento de la toma de decisiones?",
+        "opciones": ["Sí", "No"]
+        },
+        {
+        "id": 23,
+        "texto": "¿Qué elementos incluirías en la construcción de una sala de estudiantes para facilitar el estudio?"
+        },
+        {
+        "id": 24,
+        "texto": "Por favor, coméntanos cuáles son las áreas/necesidades que deben ser mejoradas en la institución."
+        }
+    ]
+}

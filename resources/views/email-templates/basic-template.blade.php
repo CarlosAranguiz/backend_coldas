@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
-    <title>Cuba - Premium Admin Template</title>
+    <title>FERAD APP</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -46,33 +46,13 @@
               <tbody>
                 <tr>
                   <td>
-                    <table style="width: 650px; margin: 0 auto; margin-bottom: 30px">
-                      <tbody>
-                        <tr>
-                          <td><img src="{{asset('assets/images/cuba-logo1.png')}}" alt=""></td>
-                          <td style="text-align: right; color:#999"><span>Some Description</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
                     <table style="width: 650px; margin: 0 auto; background-color: #fff; border-radius: 8px">
                       <tbody>
                         <tr>
-                          <td style="padding: 30px"> 
-                            <p>Hi There,</p>
-                            <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action.</p><a href="#" style="padding: 10px; background-color: #0ec4cb; color: #fff; display: inline-block; border-radius: 4px; margin-bottom: 18px">Call To Action </a>
-                            <p>This is a really simple email template. It's sole purpose is to get the recipient to click the button with no distractions.</p>
-                            <p style="margin-bottom: 0">Good luck! Hope it works.</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table style="width: 650px; margin: 0 auto; margin-top: 30px">
-                      <tbody>       
-                        <tr style="text-align: center">
-                          <td> 
-                            <p style="color: #999; margin-bottom: 0">333 Woodland Rd. Baldwinsville, NY 13027</p>
-                            <p style="color: #999; margin-bottom: 0">Don't Like These Emails?<a href="#" style="color: #0ec4cb">Unsubscribe</a></p>
-                            <p style="color: #999; margin-bottom: 0">Powered By Cuba Admin</p>
+                          <td style="padding: 30px">
+                            <p>Hola, {{ $request->nombre }} Ha enviado una solicitud para contactarlos con el siguiente mensaje: </p>
+                            <p>{{ $request->mensaje }}</p>
+                            <p>Para responder enviale un correo a {{ $request->correo }}</p>
                           </td>
                         </tr>
                       </tbody>

@@ -1,14 +1,27 @@
 <?php
 
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\ConveniosController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformacionUtilController;
+use App\Http\Controllers\InscritoEventoController;
+use App\Http\Controllers\LinkController;
+use App\Http\Controllers\NosotrosController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostEventQuestionController;
+use App\Http\Controllers\PostEventQuestionOptionController;
 use App\Http\Controllers\PracticaController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\SubcategoriaController;
 use App\Http\Controllers\UniversidadController;
 use App\Http\Controllers\UserController;
+use App\Models\InformacionUtil;
+use App\Models\PostEventQuestion;
+use App\Models\PostEventQuestionOption;
 use App\Models\Subcategoria;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
@@ -42,7 +55,7 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
             Route::post('/add',[CarreraController::class,'store'])->name('carrera.store');
             Route::post('/delete',[CarreraController::class,'delete'])->name('carrera.delete');
         });
-        
+
         Route::prefix('codigos')->group(function (){
             Route::get('/',[QRController::class,'index'])->name('codigos.list');
             Route::get('/{id}',[QRController::class,'verQR'])->name('codigos.ver');
@@ -62,10 +75,59 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
         });
 
         Route::prefix('publicaciones')->group(function(){
-            Route::get('/',[PublicacionController::class,'index'])->name('publicaciones.list');
-            Route::post('/',[PublicacionController::class,'store'])->name('publicaciones.add');
-            Route::post('/eliminar',[PublicacionController::class,'eliminarPublicacion'])->name('publicaciones.delete');
+            Route::get('/',[PostController::class,'index'])->name('publicaciones.list');
+            Route::get('crear',[PostController::class,'create'])->name('publicaciones.create');
+            Route::post('/',[PostController::class,'store'])->name('publicaciones.add');
+            Route::post('/eliminar',[PostController::class,'delete'])->name('publicaciones.delete');
         });
+
+        Route::prefix('recursos')->group(function(){
+            Route::get('/',[PublicacionController::class,'index'])->name('recursos.list');
+            Route::post('/',[PublicacionController::class,'store'])->name('recursos.store');
+            Route::post('/eliminar',[PublicacionController::class,'delete'])->name('recursos.delete');
+        });
+
+        Route::prefix('eventos')->group(function() {
+            Route::get('/',[EventoController::class,'index'])->name('eventos.list');
+            Route::post('/crear',[EventoController::class,'store'])->name('eventos.store');
+            Route::get('/eliminar/{id}',[EventoController::class,'destroy'])->name('eventos.eliminar');
+            Route::get('/{id}/inscritos',[InscritoEventoController::class,'index'])->name('eventos.inscritos');
+            Route::get('/{id}/excel',[EventoController::class,'excelExport'])->name('eventos.excel');
+        });
+
+        Route::prefix('contactos')->group(function(){
+            Route::get('/',[ContactoController::class,'index'])->name('contactos.list');
+        });
+
+        Route::prefix('nosotros')->group(function(){
+            Route::get('/',[NosotrosController::class,'index'])->name('nosotros.list');
+            Route::post('/',[NosotrosController::class,'store'])->name('nosotros.store');
+            Route::get('store',[NosotrosController::class,'create'])->name('nosotros.create');
+        });
+
+        Route::prefix('convenios')->group(function(){
+            Route::get('/',[ConveniosController::class,'index'])->name('convenios.list');
+            Route::post('/',[ConveniosController::class,'store'])->name('convenios.store');
+            Route::get('/eliminar/{id}',[ConveniosController::class,'destroy'])->name('convenios.eliminar');
+        });
+
+        Route::prefix('links')->group(function(){
+            Route::get('/',[LinkController::class,'index'])->name('links.list');
+            Route::post('/',[LinkController::class,'store'])->name('links.store');
+            Route::get('/eliminar/{id}',[LinkController::class,'destroy'])->name('links.eliminar');
+        });
+
+        Route::get('event-questions/{evento}',[PostEventQuestionController::class,'index'])->name('posteventquestions.index');
+        Route::get('event-questions/{id}/options',[PostEventQuestionController::class,'show'])->name('posteventquestions.show');
+        Route::get('event-questions/option/{id}/destroy',[PostEventQuestionOptionController::class,'destroy'])->name('posteventoptions.destroy');
+        Route::resource('posteventquestions', PostEventQuestionController::class)->except(['index','show']);
+
+        Route::resource('posteventoptions',PostEventQuestionOptionController::class)->except(['destroy']);
+
+        Route::post('guardar-decalogo',[InformacionUtilController::class,'SaveDecalogo'])->name('guardar.decalogo');
+        Route::get('config',[InformacionUtilController::class,'index'])->name('config');
+        Route::get('informes',[InformacionUtilController::class,'Informes'])->name('informes');
+        Route::get('informes/{id}',[InformacionUtilController::class,'informesExcel'])->name('informes.excel');
     });
 });
 
@@ -74,12 +136,12 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
 Route::get('lang/{locale}', function ($locale) {
     if (! in_array($locale, ['en', 'de', 'es','fr','pt', 'cn', 'ae'])) {
         abort(400);
-    }   
+    }
     Session()->put('locale', $locale);
     Session::get('locale');
     return redirect()->back();
 })->name('lang');
-    
+
 Route::prefix('dashboard')->group(function () {
     Route::view('index', 'dashboard.index')->name('index');
     Route::view('dashboard-02', 'dashboard.dashboard-02')->name('dashboard-02');
