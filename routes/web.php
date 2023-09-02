@@ -32,6 +32,9 @@ Route::get('/',[HomeController::class,'index'])->name('/');
 Route::get('/login',[UserController::class,'loginView'])->name('loginview');
 Route::post('/login',[UserController::class,'login'])->name('loginpost');
 
+
+Route::get('politicas', [HomeController::class,'politicas'])->name('politicas');
+
 Route::group(['middleware' => 'auth:sanctum'],function (){
     Route::get('/',[HomeController::class,'index'])->name('dashboard');
     Route::prefix('admin')->group(function () {

@@ -17,4 +17,8 @@ class HomeController extends Controller
         return view('dashboard.index')->with(['practicas' => $practicas]);
     }
 
+    public function politicas()
+    {
+        return view('administracion.politicas.index');
+    }
 }
