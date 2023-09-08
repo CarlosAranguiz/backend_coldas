@@ -18,9 +18,9 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'nombre' => $this->nombre ?? 'Sin Nombre',
-            'apellido_paterno' => $this->apellido_paterno ?? 'Sin Apellido Paterno',
-            'apellido_materno' => $this->apellido_materno ?? 'Sin Apellido Materno',
-            'nombre_social' => $this->nombre_social ?? 'Sin Nombre Social',
+            'apellido_paterno' => $this->apellido_paterno ?? '',
+            'apellido_materno' => $this->apellido_materno ?? '',
+            'nombre_social' => $this->nombre_social ?? '',
             'email' => $this->email,
             'fecha_nacimiento' => $fecha_nacimiento ?? 'Sin Fecha de Nacimiento',
             'telefono' => $this->telefono ?? 'Sin Teléfono',
