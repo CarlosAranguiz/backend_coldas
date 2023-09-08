@@ -17,18 +17,16 @@ class UserResource extends JsonResource
         $fecha_nacimiento = date('d-m-Y', strtotime($this->fecha_nacimiento));
         return [
             'id' => $this->id,
-            'nombre' => $this->nombre,
-            'apellido_paterno' => $this->apellido_paterno,
-            'apellido_materno' => $this->apellido_materno,
-            'nombre_social' => $this->nombre_social,
+            'nombre' => $this->nombre ?? 'Sin Nombre',
+            'apellido_paterno' => $this->apellido_paterno ?? 'Sin Apellido Paterno',
+            'apellido_materno' => $this->apellido_materno ?? 'Sin Apellido Materno',
+            'nombre_social' => $this->nombre_social ?? 'Sin Nombre Social',
             'email' => $this->email,
-            'fecha_nacimiento' => $fecha_nacimiento,
-            'telefono' => $this->telefono,
-            'carrera' => $this->carrera->nombre_carrera,
-            'universidad' => $this->carrera->universidad,
+            'fecha_nacimiento' => $fecha_nacimiento ?? 'Sin Fecha de Nacimiento',
+            'telefono' => $this->telefono ?? 'Sin Teléfono',
+            'carrera' => $this->carrera->nombre_carrera ?? 'Sin Carrera',
+            'universidad' => $this->carrera->universidad ?? 'Sin Universidad',
             'foto_perfil' => $this->profile_photo_path,
-            'latitud' => $this->latitud,
-            'longitud' => $this->longitud,
         ];
     }
 }

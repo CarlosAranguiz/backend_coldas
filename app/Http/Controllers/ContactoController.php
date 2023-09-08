@@ -54,7 +54,7 @@ class ContactoController extends Controller
             'mensaje' => $request->mensaje,
         ]);
 
-        Mail::to('carlos.aranguiz2004@gmail.com')->send(new MailContacto($request));
+        Mail::to($contacto->correo)->send(new MailContacto($request));
         return response()->json([
             'success' => true,
             'message' => 'Mensaje enviado con éxito',

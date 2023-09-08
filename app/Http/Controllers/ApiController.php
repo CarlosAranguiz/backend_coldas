@@ -69,7 +69,7 @@ class ApiController extends Controller
             'password.confirmed' => 'Las contraseñas no coinciden'
         ]);
 
-        $carrera = Carrera::where(['nombre_carrera' => 'Visita'])->get()->first();
+        // $carrera = Carrera::where(['nombre_carrera' => 'Visita'])->get()->first();
         $alumno = User::create([
             'rut' => null,
             'email' => $request->email,

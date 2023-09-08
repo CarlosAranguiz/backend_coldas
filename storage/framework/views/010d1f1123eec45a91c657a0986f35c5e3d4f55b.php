@@ -13,11 +13,11 @@
 
   <h1>Términos y Condiciones</h1>
 
-  <p>Fecha efectiva: [Fecha]</p>
+  <p>Fecha efectiva: 31-agosto-2023</p>
 
   <h2>Introducción</h2>
 
-  <p>Bienvenido a "Mi Guia HRR". Esta aplicación móvil es proporcionada por [Nombre de la Empresa o Desarrollador] y está diseñada para servir como guía para estudiantes y otros usuarios en el Hospital Regional de Rancagua. Al descargar, acceder y/o utilizar Mi Guia HRR, usted acepta cumplir con los siguientes términos y condiciones ("Términos"). Por favor, léelos cuidadosamente.</p>
+  <p>Bienvenido a "Mi Guia HRR". Esta aplicación móvil es proporcionada por HRLBO y está diseñada para servir como guía para estudiantes y otros usuarios en el Hospital Regional de Rancagua. Al descargar, acceder y/o utilizar Mi Guia HRR, usted acepta cumplir con los siguientes términos y condiciones ("Términos"). Por favor, léelos cuidadosamente.</p>
 
   <h2>Uso de la Aplicación</h2>
 
@@ -25,7 +25,7 @@
 
   <h2>Limitación de Responsabilidad</h2>
 
-  <p>[Nombre de la Empresa o Desarrollador] no será responsable de ningún daño directo, indirecto, incidental, especial, consecuente o ejemplar, incluidos, entre otros, daños por pérdida de beneficios, buena voluntad, uso, datos u otras pérdidas intangibles (incluso si [Nombre de la Empresa o Desarrollador] ha sido advertido de la posibilidad de tales daños) resultantes del uso o la imposibilidad de usar la aplicación.</p>
+  <p>HRLBO no será responsable de ningún daño directo, indirecto, incidental, especial, consecuente o ejemplar, incluidos, entre otros, daños por pérdida de beneficios, buena voluntad, uso, datos u otras pérdidas intangibles (incluso si HRLBO ha sido advertido de la posibilidad de tales daños) resultantes del uso o la imposibilidad de usar la aplicación.</p>
 
   <h2>Cambios en los Términos y Condiciones</h2>
 
@@ -44,7 +44,7 @@
 
   <h1>Política de Privacidad</h1>
 
-    <p>Última actualización: [Fecha]</p>
+    <p>Última actualización: 31-agosto-2023 </p>
 
     <h2>Introducción</h2>
 
