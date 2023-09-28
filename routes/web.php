@@ -76,7 +76,9 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
             Route::get('/',[PostController::class,'index'])->name('publicaciones.list');
             Route::get('crear',[PostController::class,'create'])->name('publicaciones.create');
             Route::post('/',[PostController::class,'store'])->name('publicaciones.add');
-            Route::post('/eliminar',[PostController::class,'delete'])->name('publicaciones.delete');
+            Route::get('/edit/{id}',[PostController::class,'edit'])->name('publicaciones.edit');
+            Route::post('/edit/{id}',[PostController::class,'update'])->name('publicaciones.update');
+            Route::get('/eliminar/{id}',[PostController::class,'delete'])->name('publicaciones.delete');
         });
 
         Route::prefix('recursos')->group(function(){

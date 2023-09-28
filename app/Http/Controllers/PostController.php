@@ -22,6 +22,48 @@ class PostController extends Controller
         return view('administracion.post.create');
     }
 
+    public function edit($id)
+    {
+        $post = Post::find($id);
+        return view('administracion.post.edit')->with(['post' => $post]);
+    }
+
+    function update(Request $request, $id){
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->category = $request->category;
+        $post->author = $request->autor;
+        $post->content = $request->content;
+        $post->save();
+
+        if ($request->hasFile('image')) {
+            $name = str_replace(' ','',$request->file('image')->getClientOriginalName());
+            $storage = Storage::putFileAs('documentos/post/' . $post->id.'/img', $request->file('image'), $name);
+            $url = Storage::url($storage);
+            $post->image = $url;
+            $post->save();
+        }
+
+        if ($request->hasFile('docs')) {
+
+            foreach ($request->file('docs') as $file) {
+                $nameDoc = str_replace(' ','',$file->getClientOriginalName());
+                $storageDoc = Storage::putFileAs('documentos/post/' . $post->id, $file, $nameDoc);
+                $urlDoc = Storage::url($storageDoc);
+                PostDocument::create([
+                    'post_id' => $post->id,
+                    'document_path' => $urlDoc,
+                    'document_name' => $nameDoc,
+                ]);
+            }
+
+        }
+        Session::flash('message', 'Publicación actualizada correctamente');
+        Session::flash('alert', 'alert-success');
+        return redirect()->route('publicaciones.list');
+    }
+
     public function store(Request $request)
     {
         $post = Post::create([

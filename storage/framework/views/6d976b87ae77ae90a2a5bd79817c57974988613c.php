@@ -51,6 +51,8 @@
                                         <td><?php echo e($post->description); ?></td>
                                         <td><?php echo e($post->created_at); ?></td>
                                         <td><?php echo e($post->author); ?></td>
+                                        <td><a href="<?php echo e(route('publicaciones.edit',$post->id)); ?>" class="btn btn-primary">Editar</a><a href="<?php echo e(route('publicaciones.delete',$post->id)); ?>" class="btn btn-danger">Eliminar</a></td>
+
                                     </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>

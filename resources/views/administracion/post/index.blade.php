@@ -51,6 +51,8 @@
                                         <td>{{ $post->description }}</td>
                                         <td>{{ $post->created_at }}</td>
                                         <td>{{ $post->author }}</td>
+                                        <td><a href="{{ route('publicaciones.edit',$post->id) }}" class="btn btn-primary">Editar</a><a href="{{ route('publicaciones.delete',$post->id) }}" class="btn btn-danger">Eliminar</a></td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>

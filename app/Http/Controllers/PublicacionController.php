@@ -73,9 +73,18 @@ class PublicacionController extends Controller
      * @param  \App\Models\Publicacion  $publicacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publicacion $publicacion)
+    public function edit(Request $request)
     {
-        //
+       // EDIT PUBLICACION
+         $request->validate([
+          'titulo' => ['required'],
+        ]);
+
+        $publicacion = Publicacion::find($request->id);
+        $publicacion->titulo = $request->titulo;
+        $publicacion->descripcion = $request->descripcion ?? 'Sin descripción';
+        $publicacion->subcategoria = $request->categoria;
+        $publicacion->save();
     }
 
     /**
