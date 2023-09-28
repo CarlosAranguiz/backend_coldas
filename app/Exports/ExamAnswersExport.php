@@ -49,9 +49,9 @@ class ExamAnswersExport implements FromCollection,WithHeadings
             $join->on('respuestas.id', '=', 'respuesta_alumnos.respuesta_id');
         })
         ->leftJoin('users', 'respuesta_alumnos.alumno_id', '=', 'users.id')
-        ->select('preguntas.*', DB::raw('MAX(respuestas.respuesta) as respuesta_text'), DB::raw('MAX(respuesta_alumnos.fundamento) as fundamento'), DB::raw('MAX(users.nombre) as user_name'))
+        ->select('preguntas.id', 'preguntas.pregunta', DB::raw('MAX(respuestas.respuesta) as respuesta_text'), DB::raw('MAX(respuesta_alumnos.fundamento) as fundamento'), DB::raw('MAX(users.nombre) as user_name'))
         ->where('preguntas.examen_id', $this->examenId)
-        ->groupBy('preguntas.id')
+        ->groupBy('preguntas.id', 'preguntas.pregunta')
         ->get();
         $resultados = $preguntasConRespuestas->map(function ($item){
             return [

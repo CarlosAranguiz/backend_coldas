@@ -20,6 +20,7 @@ class PreguntasController extends Controller
         // foreach ($json as $pregunta) {
         //     $question = Pregunta::create([
         //         'pregunta' => $pregunta['question'],
+        //         'examen_id' => 0
         //     ]);
 
         //     if(array_key_exists('question_opt',$pregunta)){
