@@ -17,7 +17,7 @@ class PostEventQuestionController extends Controller
     public function index(Evento $evento)
     {
         $questionx = PostEventQuestion::where(['event_id' => $evento->id])->get();
-        return view('administracion.eventos.questions')->with(['questions' => $questionx]);
+        return view('administracion.eventos.questions')->with(['questions' => $questionx,'id' => $evento->id]);
     }
 
     /**

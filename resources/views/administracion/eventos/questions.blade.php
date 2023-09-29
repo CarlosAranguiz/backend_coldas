@@ -71,7 +71,7 @@
             <form action="{{ route('posteventquestions.store') }}" method="POST">
             @csrf
             <div class="modal-body">
-                <input type="hidden" name="event_id" value="{{ $questions[0]->evento->id }}">
+                <input type="hidden" name="event_id" value="{{ $id }}">
                 <div class="row">
                     <div class="col-12">
                         <label class="form-label">Pregunta</label>
