@@ -103,7 +103,6 @@ class InformacionUtilController extends Controller
             $url = Storage::url($storage);
             $decalogo->url = $url;
             $decalogo->save();
-            dd($decalogo);
             Session::flash('msg','Recurso creado con exito!');
             return redirect()->back();
         }else{
