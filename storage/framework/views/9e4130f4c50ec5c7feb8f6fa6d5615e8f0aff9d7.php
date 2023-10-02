@@ -28,10 +28,16 @@
 			<div class="card">
 				<div class="card-body">
                     <form action="<?php echo e(route('guardar.decalogo')); ?>" method="post" enctype="multipart/form-data">
+                        <?php echo csrf_field(); ?>
                     <div class="row">
                         <div class="col-12">
                             <label class="form-label">Decalogo</label>
                             <input type="file" class="form-control" name="decalogo" id="decalogo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary" >Subir</button>
                         </div>
                     </div>
                     </form>

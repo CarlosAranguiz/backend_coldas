@@ -95,7 +95,7 @@ class InformacionUtilController extends Controller
     }
 
     public function SaveDecalogo(Request $request) {
-        $decalogo = InformacionUtil::where('titulo', 'decalogo')->first();
+        $decalogo = InformacionUtil::where('titulo', 'Decalogo')->first();
         if ($request->hasFile('decalogo')) {
             $image = $request->file('decalogo');
             $nombre = date('dmYHmi_') . mt_rand() . '_decalogo'. $image->getClientOriginalExtension();
@@ -103,6 +103,7 @@ class InformacionUtilController extends Controller
             $url = Storage::url($storage);
             $decalogo->url = $url;
             $decalogo->save();
+            dd($decalogo);
             Session::flash('msg','Recurso creado con exito!');
             return redirect()->back();
         }else{
