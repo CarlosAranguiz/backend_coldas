@@ -98,7 +98,7 @@ class InformacionUtilController extends Controller
         $decalogo = InformacionUtil::where('titulo', 'Decalogo')->first();
         if ($request->hasFile('decalogo')) {
             $image = $request->file('decalogo');
-            $nombre = date('dmYHmi_') . mt_rand() . '_decalogo'. $image->getClientOriginalExtension();
+            $nombre = date('dmYHmi_') . mt_rand() . '_decalogo.'. $image->getClientOriginalExtension();
             $storage = Storage::putFileAs('documentos/decalogo', $image, $nombre);
             $url = Storage::url($storage);
             $decalogo->url = $url;

@@ -110,7 +110,7 @@
                 <h5 class="modal-title" id="exampleModalLabelDefault">Eliminar Categoria</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?php echo e(route('publicaciones.delete')); ?>" method="POST">
+            <form action="<?php echo e(route('recursos.delete')); ?>" method="POST">
             <?php echo csrf_field(); ?>
             <div class="modal-body">
                 <div class="row">
