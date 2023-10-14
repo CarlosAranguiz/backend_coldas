@@ -103,6 +103,7 @@ Route::group(['middleware' => 'auth:sanctum'],function (){
             Route::get('/',[NosotrosController::class,'index'])->name('nosotros.list');
             Route::post('/',[NosotrosController::class,'store'])->name('nosotros.store');
             Route::get('store',[NosotrosController::class,'create'])->name('nosotros.create');
+            Route::get('/eliminar/{id}',[NosotrosController::class,'delete'])->name('nosotros.delete');
         });
 
         Route::prefix('convenios')->group(function(){

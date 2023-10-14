@@ -53,7 +53,7 @@
                                         <td>{{ $persona->cargo }}</td>
                                         <td>{{ $persona->ubicacion }}</td>
                                         <td>
-                                            <a href="eliminar" class="btn btn-danger">Eliminar</a>
+                                            <a href="{{ route('nosotros.delete',$persona->id) }}" class="btn btn-danger">Eliminar</a>
                                         </td>
                                     </tr>
                                     @endforeach
