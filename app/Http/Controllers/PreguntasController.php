@@ -89,7 +89,7 @@ class PreguntasController extends Controller
         $correctas = 0;
         $incorrectas = 0;
         foreach ($respuestasAlumnos as $respuestaAlumno) {
-            if($respuestaAlumno->respuesta->correcta){
+            if($respuestaAlumno->respuesta->correcta == 1){
                 $correctas++;
             }else{
                 $incorrectas++;
@@ -104,7 +104,7 @@ class PreguntasController extends Controller
             'aprobado' => $correctas >= 23 ? true : false,
         ]);
 
-        return response()->json(['message' => 'Prueba terminada','resultado' => $resultado]);
+        return response()->json(['message' => 'Prueba terminada','resultado' => $resultado,'ok' => true]);
 
     }
 
