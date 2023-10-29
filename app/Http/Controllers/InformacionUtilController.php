@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Exports\ExamAnswersExport;
 use App\Models\InformacionUtil;
+use App\Models\Pregunta;
+use App\Models\Respuesta;
+use App\Models\RespuestaAlumno;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -120,6 +124,38 @@ class InformacionUtilController extends Controller
     {
         $tituloExamen = $id == 0 ? 'evaluacion_inicial' : 'evaluacion_final';
         return Excel::download(new ExamAnswersExport($id), $tituloExamen.".xlsx");
+    }
+
+    public function prueba()
+    {
+        $alumnos = User::all();
+        $preguntas = Pregunta::all();
+
+        $informe = [];
+
+        foreach ($alumnos as $alumno) {
+            $row = [
+                'nombre_alumno' => $alumno->nombre, // Ajusta el campo de nombre del alumno.
+            ];
+
+            foreach ($preguntas as $pregunta) {
+                $respuestaAlumno = RespuestaAlumno::where('alumno_id', $alumno->id)
+                    ->whereHas('respuesta', function ($query) use ($pregunta) {
+                        $query->where('pregunta_id', $pregunta->id);
+                    })
+                    ->first();
+
+                if ($respuestaAlumno) {
+                    $row[$pregunta->pregunta] = $respuestaAlumno->respuesta->respuesta; // Ajusta el campo de respuesta.
+                } else {
+                    $row[$pregunta->pregunta] = 'No existe registro';
+                }
+            }
+
+            $informe[] = $row;
+        }
+        dd($informe);
+    return view('administracion.config.prueba', ['informe' => $informe]);
     }
 
 }

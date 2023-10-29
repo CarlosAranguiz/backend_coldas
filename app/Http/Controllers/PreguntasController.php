@@ -79,9 +79,11 @@ class PreguntasController extends Controller
     public function terminar_prueba(Request $request) {
         $respuestas = $request->all();
         foreach ($respuestas as $key => $value) {
-            RespuestaAlumno::create([
+
+            $resp = RespuestaAlumno::create([
                 'alumno_id' => auth()->user()->id,
                 'respuesta_id' => $value,
+                'fundamento' => null
             ]);
         }
 

@@ -4,6 +4,7 @@ namespace App\Exports;
 
 use App\Models\Pregunta;
 use App\Models\RespuestaAlumno;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -19,59 +20,55 @@ class ExamAnswersExport implements FromCollection,WithHeadings
 
     public function collection()
     {
-        // return RespuestaAlumno::whereHas('respuesta.pregunta', function ($query) {
-        //     $query->where('examen_id', $this->examenId);
-        // })
-        // ->with(['respuesta', 'respuesta.pregunta', 'alumno'])
-        // ->get()
-        // ->map(function ($respuestaAlumno) {
-        //     return [
-        //         'Alumno_ID' => $respuestaAlumno->alumno->id,
-        //         'Alumno_Name' => $respuestaAlumno->alumno->nombre, // Asumiendo que el modelo Alumno tiene un campo 'name'
-        //         'Pregunta_ID' => $respuestaAlumno->respuesta->id,
-        //         'Pregunta_Text' => $respuestaAlumno->respuesta->pregunta->pregunta,
-        //         'Respuesta' => $respuestaAlumno->respuesta->respuesta,
-        //         'Fundamento' => $respuestaAlumno->fundamento,
-        //     ];
-        // });
+        $alumnos = User::all();
+        $preguntas = Pregunta::all();
 
-        // $preguntasConRespuestas = Pregunta::leftJoin('respuestas', 'preguntas.id', '=', 'respuestas.pregunta_id')
-        // ->leftJoin('respuesta_alumnos', function ($join) {
-        //     $join->on('respuestas.id', '=', 'respuesta_alumnos.respuesta_id');
-        // })
-        // ->leftJoin('users','respuesta_alumnos.alumno_id','=','users.id')
-        // ->where('preguntas.examen_id', $this->examenId)
-        // ->select('preguntas.*', 'respuestas.respuesta as respuesta_text', 'respuesta_alumnos.*','users.*')
-        // ->get();
+        $informe = [];
 
-        $preguntasConRespuestas = Pregunta::leftJoin('respuestas', 'preguntas.id', '=', 'respuestas.pregunta_id')
-        ->leftJoin('respuesta_alumnos', function($join) {
-            $join->on('respuestas.id', '=', 'respuesta_alumnos.respuesta_id');
-        })
-        ->leftJoin('users', 'respuesta_alumnos.alumno_id', '=', 'users.id')
-        ->select('preguntas.id', 'preguntas.pregunta', DB::raw('MAX(respuestas.respuesta) as respuesta_text'), DB::raw('MAX(respuesta_alumnos.fundamento) as fundamento'), DB::raw('MAX(users.nombre) as user_name'))
-        ->where('preguntas.examen_id', $this->examenId)
-        ->groupBy('preguntas.id', 'preguntas.pregunta')
-        ->get();
-        $resultados = $preguntasConRespuestas->map(function ($item){
-            return [
-                // 'Pregunta_ID' => $numeroPregunta,
-                'Pregunta_Text' => $item->pregunta,
-                'Respuesta_Text' => $item->respuesta_text ?? 'Sin respuesta seleccionada',
-                'Fundamento' => $item->fundamento ?? 'Sin fundamento',
-                'Usuario' => $item->user_name ?? 'Desconocido',
+        foreach ($alumnos as $alumno) {
+            $row = [
+                'nombre_alumno' => $alumno->nombre,
             ];
-        });
-        return $resultados;
+
+            foreach ($preguntas as $pregunta) {
+                $respuestaAlumno = RespuestaAlumno::where('alumno_id', $alumno->id)
+                    ->whereHas('respuesta', function ($query) use ($pregunta) {
+                        $query->where('pregunta_id', $pregunta->id);
+                    })
+                    ->first();
+
+                if ($respuestaAlumno) {
+                    $row[$pregunta->pregunta] = $respuestaAlumno->respuesta->respuesta;
+                } else {
+                    $row[$pregunta->pregunta] = 'No existe registro';
+                }
+
+                if (!isset($row['fundamento'])) {
+                    $row['fundamento'] = ''; // Inicializa el campo de fundamentación.
+                }
+
+                if ($respuestaAlumno) {
+                    $row['fundamento'] = $respuestaAlumno->fundamento; // Agrega la fundamentación si existe respuesta.
+                }
+            }
+
+            $informe[] = $row;
+        }
+
+        return collect($informe);
     }
 
     public function headings(): array
     {
-        return [
-            'Pregunta_Text',
-            'Respuesta',
-            'Fundamento',
-            'Alumno'
-        ];
+        $preguntas = Pregunta::all();
+        $headings = ['nombre_alumno'];
+
+        foreach ($preguntas as $pregunta) {
+            $headings[] = $pregunta->pregunta;
+        }
+
+        $headings[] = 'fundamento'; // Agrega el encabezado de la fundamentación.
+
+        return $headings;
     }
 }
