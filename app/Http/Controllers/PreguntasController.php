@@ -73,6 +73,15 @@ class PreguntasController extends Controller
             }
         }
 
+        $resultado = Resultado::create([
+            'user_id' => auth()->user()->id,
+            'buenas' => 0,
+            'malas' => 0,
+            'total' => 0,
+            'aprobado' => true,
+            'examen_id' => 1
+        ]);
+
         return response()->json(['message' => 'Prueba terminada','ok' => true]);
     }
 
@@ -104,6 +113,7 @@ class PreguntasController extends Controller
             'malas' => $incorrectas,
             'total' => $this->mapa[''.$correctas.''],
             'aprobado' => $correctas >= 23 ? true : false,
+            'examen_id' => 0
         ]);
 
         return response()->json(['message' => 'Prueba terminada','resultado' => $resultado,'ok' => true]);
